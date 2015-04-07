@@ -1,0 +1,113 @@
+\documentclass[a4paper]{scrartcl}
+
+% font/encoding packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+
+\usepackage[top=1.1in, bottom=1.5in]{geometry}
+
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage{stmaryrd}
+\usepackage{marvosym}
+\setcounter{MaxMatrixCols}{13}
+\allowdisplaybreaks
+\usepackage[output-decimal-marker={,}]{siunitx}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{venndiagram}
+\usepackage[shortlabels]{enumitem}
+\usepackage{polynom}
+\polyset{style=C, div=:,vars=x}
+\usepackage[section]{placeins}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.5.1}
+\usepgfplotslibrary{fillbetween}
+\usepackage{gauss}
+\usepackage{systeme}
+\usepackage{cancel}
+
+\tikzset{
+    declare function={Floor(\x)=round(\x-0.5);}
+}
+
+% Matrizen
+\newdimen\asep 
+\asep=0.25\baselineskip 
+
+\providecommand{\vo}{ 
+    \text{\raisebox{-\asep}[0pt][0pt]{\rule[0pt]{0.8pt}{3.5\asep}}}} 
+\providecommand{\vu}{ 
+    \text{\raisebox{-0.5\asep}[0pt][0pt]{\rule[0pt]{0.8pt}{\baselineskip}}}} 
+\providecommand{\vm}{ 
+    \text{\raisebox{-\asep}[0pt][0pt]{\rule[0pt]{0.8pt}{\baselineskip}}}}
+
+\newtheorem*{behaupt}{Behauptung}
+
+\newcommand{\fallfac}[2]{{#1}^{\underline{#2}}}
+
+\newcommand{\risefac}[2]{{#1}^{\overline{#2}}}
+
+\newcommand{\dif}{\mathop{}\!\mathrm{d}}
+
+\newcommand{\linf}[1]{\lim_{#1 \to \infty}}
+\newcommand{\gdw}{\Leftrightarrow}
+
+\DeclareSIUnit\calorie{cal}
+
+\renewcommand{\arraystretch}{1.3}
+
+\title{Stochastik 1 für Informatiker}
+\subtitle{Blatt 1 Hausaufgaben}
+\author{
+	Lennart Braun (6523742, Gruppe 5)
+}
+\date{zum 14. April 2015}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}[label=\bfseries\arabic*.]
+    \item
+        \begin{enumerate}[(a)]
+            \item
+
+            \item
+
+        \end{enumerate}
+
+    \item
+        \begin{enumerate}[(a)]
+            \item
+
+            \item
+
+            \item
+
+            \item
+
+        \end{enumerate}
+
+    \item
+        \begin{enumerate}[(a)]
+            \item
+
+            \item
+
+            \item
+
+            \item
+
+        \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
