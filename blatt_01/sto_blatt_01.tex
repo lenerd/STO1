@@ -39,12 +39,38 @@
     \item
         \begin{enumerate}[label=(\alph*)]
             \item
+                Das Eintreten aller drei Ereignisse $A, B, C$ wird durch
+                den folgenden Ausdruck beschrieben:
+                \begin{equation}
+                    A \cap B \cap C
+                \end{equation}
 
             \item
+                Das Eintreten höchstens eines der drei Ereignisse wird durch
+                den folgenden Ausdruck beschrieben:
+                \begin{equation}
+                    (A \cup B \cup C)^C
+                    \cup A \backslash (B \cup C)
+                    \cup B \backslash (A \cup C)
+                    \cup C \backslash (A \cup B)
+                \end{equation}
 
             \item
+                Das Eintreten mindestens zwei der drei Ereignisse wird durch
+                den folgenden Ausdruck beschrieben:
+                \begin{equation}
+                    (A \cap B) \cup (A \cap C) \cup (B \cap C)
+                \end{equation}
 
             \item
+                Das Eintreten einer ungeraden Anzahl der drei Ereignisse wird
+                durch den folgenden Ausdruck beschrieben:
+                \begin{equation}
+                    (A \cap B \cap C)
+                    \cup A \backslash (B \cup C)
+                    \cup B \backslash (A \cup C)
+                    \cup C \backslash (A \cup B)
+                \end{equation}
 
         \end{enumerate}
 
