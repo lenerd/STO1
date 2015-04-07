@@ -7,12 +7,14 @@
 \usepackage[ngerman]{babel}
 
 \usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{stmaryrd}
 \allowdisplaybreaks
 \usepackage[output-decimal-marker={,}]{siunitx}
 \usepackage[shortlabels]{enumitem}
 \usepackage[section]{placeins}
 
 \newtheorem*{behaupt}{Behauptung}
+\newcommand{\gdw}{\Leftrightarrow}
 
 
 \title{Stochastik 1 für Informatiker}
@@ -31,8 +33,69 @@
     \item
         \begin{enumerate}[label=(\alph*)]
             \item
+                \begin{behaupt}
+                    Die Mengengleichung
+                    \begin{equation}
+                        (A \backslash B) \cup (A \backslash C)
+                        = A \backslash (B \cap C)
+                    \end{equation}
+                    gilt stets.
+                \end{behaupt}
+                \begin{proof}
+                    Um Gleichheit zu zeigen, muss bewiesen werden, dass beide
+                    Mengen Teilmengen der jeweils anderen sind.
+                    \begin{enumerate}
+                        \item
+                            $(A \backslash B) \cup (A \backslash C)
+                            \subset A \backslash (B \cap C)$ \\
+                            \begin{equation}
+                                \begin{split}
+                                         &x \in (A \backslash B)
+                                            \cup (A \backslash C) \\
+                                    \gdw &x \in (A \cap B^C) \cup (A \cap C^C) \\
+                                    \gdw &x \in A \cap (B^C \cup C^C) \\
+                                    \gdw &x \in A \cap (B \cap C)^C \\
+                                    \gdw &x \in A \backslash (B \cap C)
+                                \end{split}
+                            \end{equation}
+                            Die Anwendung von mengentheoretischen Umformungen
+                            zeigt, dass jedes Element der linken Menge auch in
+                            der rechten enthalten sein muss.
+
+                        \item
+                            $(A \backslash B) \cup (A \backslash C)
+                            \supset A \backslash (B \cap C)$ \\
+                            Da ausschließlich Äquivalenzumformungen vorgenommen
+                            wurden, gilt obige Argumentation auch in der anderen
+                            Richtung.
+                    \end{enumerate}
+                    Aus i. und ii. folgt die Behauptung.
+                \end{proof}
 
             \item
+                \begin{behaupt}
+                    Die Mengengleichung
+                    \begin{equation}
+                        (A \cup B) \backslash C = A \cup (B \backslash C)
+                    \end{equation}
+                    ist im Allgemeinen nicht gültig.
+                \end{behaupt}
+                \begin{proof}
+                    Seien die Mengen wie folgt definiert
+                    \begin{equation}
+                        \Omega = A = B = C = \{x\} \text{ .}
+                    \end{equation}
+                    Das Einsetzen in obige Gleichung führt zum Widerspruch.
+                    \begin{equation}
+                        \begin{split}
+                        (A \cup B) \backslash C &= A \cup (B \backslash C) \\
+                        \gdw (\{x\} \cup \{x\}) \backslash \{x\}
+                        &= \{x\} \cup (\{x\} \backslash \{x\}) \\
+                        \gdw \{x\} \backslash \{x\} &= \{x\} \cup \emptyset \\
+                        \gdw \emptyset &= \{x\} \quad \lightning
+                        \end{split}
+                    \end{equation}
+                \end{proof}
 
         \end{enumerate}
 
