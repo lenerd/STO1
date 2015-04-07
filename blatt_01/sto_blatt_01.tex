@@ -77,12 +77,70 @@
     \item
         \begin{enumerate}[label=(\alph*)]
             \item
+                Der Wahrscheinlichkeitsraum $(\Omega, P)$ modelliert drei
+                aufeinanderfolgenden Münzwürfe.
+                Der Grundraum sei definiert als
+                \begin{equation}
+                    \Omega = \Big\{
+                        (x, y, z) \ \vert\  x, y, z \in \{k, z\}
+                    \Big\}
+                    = \{k, z\}^3
+                    \text{ .}
+                \end{equation}
+                $P$ sei das Laplace-Maß auf $\Omega$, d.\,h. es gelte
+                $P(A) = \frac{|A|}{|\Omega|}$ für alle $A \subset \Omega$.
 
             \item
+                Das Ereignis, dass im ersten und im zweiten Wurf jeweils die
+                gleiche Münzseite oben liegt, wird durch die Menge $A$
+                beschrieben.
+                \begin{equation}
+                    A = \left\{
+                        (x, y, z) \in \Omega \ \vert \ 
+                        x = y
+                    \right\}
+                \end{equation}
+                Das Ereignis, dass im zweiten und im dritten Wurf jeweils die
+                gleiche Münzseite oben liegt, wird durch die Menge $B$
+                beschrieben.
+                \begin{equation}
+                    B = \left\{
+                        (x, y, z) \in \Omega \ \vert \ 
+                        y = z
+                    \right\}
+                \end{equation}
 
             \item
+                $A \cap B$  beschreibt das Ereignis, dass in allen drei
+                Münzwürfen die gleiche Seite oben liegt.
+                \begin{equation}
+                    A \cap B = \left\{
+                        (x, y, z) \in \Omega \ \vert \ 
+                        x = y = z
+                    \right\}
+                \end{equation}
+                $A \backslash B$ beschreibt das Ereignis, dass in den ersten
+                beiden Münzwürfen die gleiche Seite oben liegt und im letzten
+                Wurf die andere Seite oben liegt.
+                \begin{equation}
+                    A \backslash B = \left\{
+                        (x, y, z) \in \Omega \ \vert \ 
+                        x = y \land y \neq z
+                    \right\}
+                \end{equation}
 
             \item
+                Die Wahrscheinlichkeit für $A$ beträgt $\frac{1}{2}$, da $A$
+                vier Elemente enthält und obige Definition von $P$ gilt.
+                \begin{equation}
+                    P(A) = \frac{|A|}{|\Omega|} = \frac{4}{8} = \frac{1}{2}
+                \end{equation}
+                Die Wahrscheinlichkeit für $A \cap B$ beträgt $\frac{1}{4}$,
+                da $A \cap B$ zwei Elemente enthält.
+                \begin{equation}
+                    P(A \cap B) = \frac{|A \cap B|}{|\Omega|}
+                    = \frac{2}{8} = \frac{1}{4}
+                \end{equation}
 
         \end{enumerate}
 
