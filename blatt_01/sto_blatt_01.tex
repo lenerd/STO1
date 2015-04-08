@@ -19,7 +19,7 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \lhead{Stochastik 1 - Gruppe 5 - Blatt Nr. 1}
-\rhead{Lennart Braun, John Doe, Kai Robin Sachse}
+\rhead{Lennart Braun, Merlin Koglin, Kai Robin Sachse}
 \cfoot{\thepage}
 
 
@@ -37,13 +37,14 @@
 
 \begin{enumerate}[label=\bfseries\arabic*.]
     \item
+        Seien $\Omega \neq \emptyset$ und $A,B,C \subset \Omega$.
         \begin{enumerate}[label=(\alph*)]
             \item
                 \begin{behaupt}
                     Die Mengengleichung
                     \begin{equation}
-                        (A \backslash B) \cup (A \backslash C)
-                        = A \backslash (B \cap C)
+                        (A \setminus B) \cup (A \setminus C)
+                        = A \setminus (B \cap C)
                     \end{equation}
                     gilt stets.
                 \end{behaupt}
@@ -52,16 +53,15 @@
                     Mengen Teilmengen der jeweils anderen sind.
                     \begin{enumerate}
                         \item
-                            $(A \backslash B) \cup (A \backslash C)
-                            \subset A \backslash (B \cap C)$ \\
+                            $(A \setminus B) \cup (A \setminus C)
+                            \subset A \setminus (B \cap C)$ \\
                             \begin{equation}
                                 \begin{split}
-                                         &x \in (A \backslash B)
-                                            \cup (A \backslash C) \\
-                                    \gdw &x \in (A \cap B^C) \cup (A \cap C^C) \\
-                                    \gdw &x \in A \cap (B^C \cup C^C) \\
-                                    \gdw &x \in A \cap (B \cap C)^C \\
-                                    \gdw &x \in A \backslash (B \cap C)
+                                    x \in (A \setminus B) \cup (A \setminus C)
+                                    &\gdw x \in (A \cap B^C) \cup (A \cap C^C)\\
+                                    &\gdw x \in A \cap (B^C \cup C^C) \\
+                                    &\gdw x \in A \cap (B \cap C)^C \\
+                                    &\gdw x \in A \setminus (B \cap C)
                                 \end{split}
                             \end{equation}
                             Die Anwendung von mengentheoretischen Umformungen
@@ -69,8 +69,8 @@
                             der rechten enthalten sein muss.
 
                         \item
-                            $(A \backslash B) \cup (A \backslash C)
-                            \supset A \backslash (B \cap C)$ \\
+                            $(A \setminus B) \cup (A \setminus C)
+                            \supset A \setminus (B \cap C)$ \\
                             Da ausschließlich Äquivalenzumformungen vorgenommen
                             wurden, gilt obige Argumentation auch in der anderen
                             Richtung.
@@ -82,7 +82,7 @@
                 \begin{behaupt}
                     Die Mengengleichung
                     \begin{equation}
-                        (A \cup B) \backslash C = A \cup (B \backslash C)
+                        (A \cup B) \setminus C = A \cup (B \setminus C)
                     \end{equation}
                     ist im Allgemeinen nicht gültig.
                 \end{behaupt}
@@ -94,10 +94,10 @@
                     Das Einsetzen in obige Gleichung führt zum Widerspruch.
                     \begin{equation}
                         \begin{split}
-                        (A \cup B) \backslash C &= A \cup (B \backslash C) \\
-                        \gdw (\{x\} \cup \{x\}) \backslash \{x\}
-                        &= \{x\} \cup (\{x\} \backslash \{x\}) \\
-                        \gdw \{x\} \backslash \{x\} &= \{x\} \cup \emptyset \\
+                        (A \cup B) \setminus C &= A \cup (B \setminus C) \\
+                        \gdw (\{x\} \cup \{x\}) \setminus \{x\}
+                        &= \{x\} \cup (\{x\} \setminus \{x\}) \\
+                        \gdw \{x\} \setminus \{x\} &= \{x\} \cup \emptyset \\
                         \gdw \emptyset &= \{x\} \quad \lightning
                         \end{split}
                     \end{equation}
@@ -106,6 +106,7 @@
         \end{enumerate}
 
     \item
+        Seien $A,B,C$ Ereignisse im Grundraum $\Omega$.
         \begin{enumerate}[label=(\alph*)]
             \item
                 Das Eintreten aller drei Ereignisse $A, B, C$ wird durch
@@ -119,9 +120,9 @@
                 den folgenden Ausdruck beschrieben:
                 \begin{equation}
                     (A \cup B \cup C)^C
-                    \cup (A \backslash (B \cup C))
-                    \cup (B \backslash (A \cup C))
-                    \cup (C \backslash (A \cup B))
+                    \cup (A \setminus (B \cup C))
+                    \cup (B \setminus (A \cup C))
+                    \cup (C \setminus (A \cup B))
                 \end{equation}
 
             \item
@@ -136,9 +137,9 @@
                 durch den folgenden Ausdruck beschrieben:
                 \begin{equation}
                     (A \cap B \cap C)
-                    \cup (A \backslash (B \cup C))
-                    \cup (B \backslash (A \cup C))
-                    \cup (C \backslash (A \cup B))
+                    \cup (A \setminus (B \cup C))
+                    \cup (B \setminus (A \cup C))
+                    \cup (C \setminus (A \cup B))
                 \end{equation}
 
         \end{enumerate}
@@ -151,11 +152,13 @@
                 Der Grundraum sei definiert als
                 \begin{equation}
                     \Omega = \Big\{
-                        (x, y, z) \ \vert\  x, y, z \in \{k, z\}
+                        (x_1, x_2, x_3) \ \vert\  x_1, x_2, x_3 \in \{k, z\}
                     \Big\}
                     = \{k, z\}^3
                     \text{ .}
                 \end{equation}
+                Sei $(x_1, x_2, x_3) \in \Omega$ und $i \in \{1,2,3\}$, dann
+                steht $x_i = k$ für Kopf im $i$-ten Wurf und $x_i = z$ für Zahl.
                 $P$ sei das Laplace-Maß auf $\Omega$, d.\,h. es gelte
                 $P(A) = \frac{|A|}{|\Omega|}$ für alle $A \subset \Omega$.
 
@@ -165,8 +168,8 @@
                 beschrieben.
                 \begin{equation}
                     A = \left\{
-                        (x, y, z) \in \Omega \ \vert \ 
-                        x = y
+                        (x_1, x_2, x_3) \in \Omega \ \vert \ 
+                        x_1 = x_2
                     \right\}
                 \end{equation}
                 Das Ereignis, dass im zweiten und im dritten Wurf jeweils die
@@ -174,8 +177,8 @@
                 beschrieben.
                 \begin{equation}
                     B = \left\{
-                        (x, y, z) \in \Omega \ \vert \ 
-                        y = z
+                        (x_1, x_2, x_3) \in \Omega \ \vert \ 
+                        x_2 = x_3
                     \right\}
                 \end{equation}
 
@@ -184,17 +187,17 @@
                 Münzwürfen die gleiche Seite oben liegt.
                 \begin{equation}
                     A \cap B = \left\{
-                        (x, y, z) \in \Omega \ \vert \ 
-                        x = y = z
+                        (x_1, x_2, x_3) \in \Omega \ \vert \ 
+                        x_1 = x_2 = x_3
                     \right\}
                 \end{equation}
-                $A \backslash B$ beschreibt das Ereignis, dass in den ersten
+                $A \setminus B$ beschreibt das Ereignis, dass in den ersten
                 beiden Münzwürfen die gleiche Seite oben liegt und im letzten
                 Wurf die andere Seite oben liegt.
                 \begin{equation}
-                    A \backslash B = \left\{
-                        (x, y, z) \in \Omega \ \vert \ 
-                        x = y \land y \neq z
+                    A \setminus B = \left\{
+                        (x_1, x_2, x_3) \in \Omega \ \vert \ 
+                        x_1 = x_2 \land x_2 \neq x_3
                     \right\}
                 \end{equation}
 
