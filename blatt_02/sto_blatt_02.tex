@@ -43,7 +43,25 @@
                     Für die leere Menge $\emptyset$ gilt $P(\emptyset) = 0$.
                 \end{behaupt}
                 \begin{proof}
-                    
+                    Angenommen es gelte $P(\emptyset) = k \neq 0$ mit
+                    $k \in (0, 1]$.
+                    Da es sich bei $(\Omega, P)$ um einen endlichen
+                    Wahrscheinlichkeitsraum handelt, gilt für alle disjunkten
+                    Teilmengen $A, B \subset \Omega$
+                    $P(A \cup B) = P(A) + B(B)$.
+                    Die leere Menge $\emptyset$ und der Grundraum $\Omega$ sind
+                    solche Mengen: $\emptyset, \Omega \subset \Omega$.
+                    \begin{equation}
+                        \begin{split}
+                            P(\Omega) &= P(\Omega \cup \emptyset) \\
+                            \gdw P(\Omega) &= P(\Omega) + P(\emptyset) \\
+                            \gdw P(\Omega) &= 1 + k > 1 \quad \lightning
+                        \end{split}
+                    \end{equation}
+                    Obige Annahme, dass $P(\emptyset) \neq 0$ sei, führt zum
+                    Widerspruch mit der Eigenschaft $P(\Omega) = 1$ von
+                    endlichen Wahrscheinlichkeitsräumen.
+                    Die Behauptung muss daher gelten.
                 \end{proof}
 
             \item
@@ -56,7 +74,40 @@
                     \end{equation*}
                     
                 \end{behaupt}
-                \begin{proof}
+                \begin{proof}[Beweis durch vollständige Induktion] \hfill \\
+                    \textbf{Induktionsanfang} \\
+                    Sei $k = 1$.
+                    \begin{equation}
+                        \begin{split}
+                            P(A_1) &= P(A_1) \\
+                            \gdw P \left( \bigcup_{i=1}^1 A_i \right)
+                            &= P(A_1) = \sum_{i=1}^1 P(A_i) \\
+                            \gdw P \left( \bigcup_{i=1}^1 A_i \right)
+                            &= \sum_{i=1}^1 P(A_i)
+                        \end{split}
+                    \end{equation}
+                    
+                    \textbf{Induktionsschritt} \\
+                    Angenommen, es gelte die Behauptung für ein festes
+                    $k \in  \mathbb{N}$.
+                    \begin{equation}
+                        \begin{split}
+                            P \left( \bigcup_{i=1}^{k+1} A_i \right)
+                            &= P \left( \left( \bigcup_{i=1}^k A_i \right)
+                            \cup A_{k+1} \right) \\
+                            \gdw P \left( \bigcup_{i=1}^{k+1} A_i \right)
+                            &= P \left( \bigcup_{i=1}^k A_i \right) + P (A_{k+1})
+                            \qquad \text{(da }\bigcup_{i=1}{k} A_i \text{ und } A_{k+1} \text{ disjunkt)} \\
+                            \gdw P \left( \bigcup_{i=1}^{k+1} A_i \right)
+                            &\stackrel{I.A.}{=} \left( \sum_{i=1}^k P(A_i) \right)
+                            + P (A_{k+1}) \\
+                            \gdw P \left( \bigcup_{i=1}^{k+1} A_i \right)
+                            &= \sum_{i=1}^{k+1} P(A_i)
+                        \end{split}
+                    \end{equation}
+                    Dann gilt die Behauptung auch für $k+1$ und nach
+                    vollständiger Induktion für alle $n \in \mathbb{N}$.
+                    
                     
                 \end{proof}
 
@@ -66,7 +117,16 @@
                     $P(A^C) = 1 - P(a)$
                 \end{behaupt}
                 \begin{proof}
-                    
+                    Sei $A$ eine beliebige Teilmenge des Grundraumes.
+                    Da $A \cup A^C = \Omega$ und $A \cap A^C = \emptyset$, gilt
+                    \begin{equation}
+                        \begin{split}
+                            P(\Omega) &= 1 \\
+                            \gdw P(A \cup A^C) &= 1 \\
+                            \gdw P(A) + P(A^C) &= 1 \\
+                            \gdw P(A^C) &= 1 - P(A) \text{ .}
+                        \end{split}
+                    \end{equation}
                 \end{proof}
 
             \setcounter{enumii}{4}
@@ -76,6 +136,31 @@
                     $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
                 \end{behaupt}
                 \begin{proof}
+                    $A$ und $B$ lassen sich in jeweils zwei disjunkte Teilmengen
+                    zerlegen:
+                    $A = (A \setminus B) \cup (A \cap B)$ und
+                    $B = (B \setminus A) \cup (B \cap A)$.
+                    Es gilt $(A \setminus B) \cap (B \setminus A) = \emptyset$.
+                    \begin{equation}
+                        \begin{split}
+                            P(A \cup B)
+                            &= P \Big( ((A \setminus B) \cup (A \cap B))
+                            \cup ((B \setminus A) \cup (B \cap A)) \Big) \\
+                            \gdw P(A \cup B)
+                            &= P \Big( (A \setminus B) \cup (A \cap B)
+                            \cup (B \setminus A) \Big) \\
+                            \gdw P(A \cup B)
+                            &= P(A \setminus B) + P(A \cap B) + P(B \setminus A) \\
+                            \gdw P(A \cup B) + P(A \cap B)
+                            &= P(A \setminus B) + P(A \cap B)
+                            + P(B \setminus A) + P(A \cap B) \\
+                            \gdw P(A \cup B) + P(A \cap B)
+                            &= P((A \setminus B) \cup (A \cap B))
+                            + P((B \setminus A) \cup (B \cap A)) \\
+                            \gdw P(A \cup B) + P(A \cap B) &= P(A) + P(B) \\
+                            \gdw P(A \cup B) &= P(A) + P(B) -P(A \cap B)
+                        \end{split}
+                    \end{equation}
                     
                 \end{proof}
 
