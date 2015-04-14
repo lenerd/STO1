@@ -63,6 +63,8 @@
                     endlichen Wahrscheinlichkeitsräumen.
                     Die Behauptung muss daher gelten.
                 \end{proof}
+                
+                Würde ich eher direkt statt per Widerspruch zeigen. In etwa so: $P(\Omega)=1$ also gilt: $P(\Omega)=P(\Omega\cup\emptyset)=P(\Omega)+P(\emptyset)=1\Leftrightarrow P(\Omega)+P(\emptyset)-P(\Omega)=1-P(\Omega)\Leftrightarrow P(\emptyset)=1-1=0$
 
             \item
                 \begin{behaupt}
@@ -97,7 +99,7 @@
                             \cup A_{k+1} \right) \\
                             \gdw P \left( \bigcup_{i=1}^{k+1} A_i \right)
                             &= P \left( \bigcup_{i=1}^k A_i \right) + P (A_{k+1})
-                            \qquad \text{(da }\bigcup_{i=1}{k} A_i \text{ und } A_{k+1} \text{ disjunkt)} \\
+                            \qquad \text{(da }\bigcup_{i=1}^{k} A_i \text{ und } A_{k+1} \text{ disjunkt)} \\
                             \gdw P \left( \bigcup_{i=1}^{k+1} A_i \right)
                             &\stackrel{I.A.}{=} \left( \sum_{i=1}^k P(A_i) \right)
                             + P (A_{k+1}) \\
@@ -114,7 +116,7 @@
             \item
                 \begin{behaupt}
                     Für alle Teilmengen $A \subset \Omega$ gilt
-                    $P(A^C) = 1 - P(a)$
+                    $P(A^C) = 1 - P(A)$
                 \end{behaupt}
                 \begin{proof}
                     Sei $A$ eine beliebige Teilmenge des Grundraumes.
@@ -168,8 +170,16 @@
 
 
     \item
+    
+    \item \begin{behaupt}
+                \end{behaupt}Es gibt 1001 Möglichkeiten die 10 Stimmen auf die 5 Parteien aufzuteilen.
+                \begin{proof}
+                    Wir haben 10 Stimmen die wir auf 5 Parteien aufteilen wollen. Wir simulieren dies durch ein Fächermodell. Da eine Partei mehr als eine Stimme bekommen darf, darf jedes Fach Mehrfach belegt werden. Ferner unterscheiden sich die Stimmen die abgegeben werden nicht, weshalb wir es mit ununterscheidbaren Murmeln zu tun haben. Die mögliche Anzahl der Stimmverteilungen bestimmt sich also durch
+                    $$\binom{n+k-1}{k}=\binom{5+10-1}{10}=\binom{14}{10}=1001$$
+                    
+                \end{proof}
 
-    \item
+    
 
 \end{enumerate}
 
