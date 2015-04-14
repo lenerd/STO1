@@ -171,13 +171,24 @@
 
     \item
     
-    \item \begin{behaupt}
-                \end{behaupt}Es gibt 1001 Möglichkeiten die 10 Stimmen auf die 5 Parteien aufzuteilen.
-                \begin{proof}
-                    Wir haben 10 Stimmen die wir auf 5 Parteien aufteilen wollen. Wir simulieren dies durch ein Fächermodell. Da eine Partei mehr als eine Stimme bekommen darf, darf jedes Fach Mehrfach belegt werden. Ferner unterscheiden sich die Stimmen die abgegeben werden nicht, weshalb wir es mit ununterscheidbaren Murmeln zu tun haben. Die mögliche Anzahl der Stimmverteilungen bestimmt sich also durch
-                    $$\binom{n+k-1}{k}=\binom{5+10-1}{10}=\binom{14}{10}=1001$$
-                    
-                \end{proof}
+    \item
+        \begin{behaupt}
+            Es gibt 1001 Möglichkeiten die 10 Stimmen auf die 5 Parteien aufzuteilen.
+        \end{behaupt}
+        \begin{proof}
+            Wir haben $k = 10$ Stimmen die wir auf $n = 5$ Parteien aufteilen
+            wollen.
+            Wir simulieren dies durch ein Fächermodell.
+            Da eine Partei mehr als eine Stimme bekommen darf, darf jedes Fach
+            mehrfach belegt werden.
+            Ferner unterscheiden sich die Stimmen die abgegeben werden nicht,
+            weshalb wir es mit ununterscheidbaren Murmeln zu tun haben.
+            Die mögliche Anzahl der Stimmverteilungen bestimmt sich also durch
+            \begin{equation}
+                \binom{n+k-1}{k} = \binom{5+10-1}{10} = \binom{14}{10} = 1001
+                \text{ .}
+            \end{equation}
+        \end{proof}
 
     
 
