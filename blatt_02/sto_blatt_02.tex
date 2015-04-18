@@ -10,6 +10,7 @@
 \usepackage{amsmath, amssymb, amsfonts, amsthm}
 \usepackage{stmaryrd}
 \allowdisplaybreaks
+\usepackage[output-decimal-marker={,}]{siunitx}
 \usepackage[shortlabels]{enumitem}
 \usepackage[section]{placeins}
 
@@ -170,6 +171,52 @@
 
 
     \item
+        Wir nehmen an, Gummibärchen gleicher Farbe sind unterscheidbar.
+        Es sei $R = \{ r_1, \ldots, r_4 \}$ die Menge der roten Gummibärchen
+        in der Tüte.
+        Analog sind $Ge = \{ ge_1, \ldots, ge_6 \}$ und
+        $Gr = \{ gr_1, \ldots, gr_3 \}$ die Mengen der gelben bzw. grünen
+        Gummibärchen.
+        Es sei $B = R \cup Ge \cup Gr$.
+        Wir definieren eine Ordnung auf $B$: Es gelten $ge < gr < r$ sowie
+        $x_i < y_j \gdw x < y \lor (x = y \land i < j)$ für $x_i, y_j \in B$.
+        Der Wahrscheinlichkeitsraum $(\Omega, P)$ sei wie folgt definiert.
+        \begin{equation}
+            \Omega = \left\{ (\omega_1, \omega_2, \omega_3) \in B^3 \ \vert \ 
+            \omega_1 < \omega_2 < \omega_3 \right\}
+            \qquad
+            |\Omega| = \binom{13}{3} = 286
+        \end{equation}
+        Sei $(\omega_1, \omega_2, \omega_3) \in \Omega$, dann bedeutet
+        $\omega_i = x_j$ für $i \in \{ 1, 2, 3 \}$, es wurde das Gummibärchen
+        $x_j$ aus $B$ gezogen.
+        $P$ sei das Laplace-Maß auf $\Omega$, d.\,h. es gelte
+        $P(A) = \frac{|A|}{|\Omega|}$ für alle $A \subset \Omega$.
+
+        Das Ereignis, dass drei Gummibärchen gleicher Farbe gezogen werden, wird
+        durch $A = A_R \cup A_{Ge} \cup A_{Gr}$ beschrieben.
+        $A_R$ sei das Ereignis, dass drei rote Gummibärchen gezogen werden.
+        \begin{equation}
+            A_R = \left\{ (\omega_1, \omega_2, \omega_3) \in R^3 \ \vert \ 
+            \omega_1 < \omega_2 < \omega_3 \right\}
+            \qquad
+            |A_R| = \binom{4}{3} = 4
+        \end{equation}
+        $A_{Ge}$ und $A_{Gr}$ seien analog definiert.
+        \begin{gather}
+            A_{Ge} = \left\{ (\omega_1, \omega_2, \omega_3) \in Ge^3 \ \vert \ 
+            \omega_1 < \omega_2 < \omega_3 \right\}
+            \qquad
+            |A_{Ge}| = \binom{6}{3} = 20 \\
+            A_{Gr} = \left\{ (\omega_1, \omega_2, \omega_3) \in Gr^3 \ \vert \ 
+            \omega_1 < \omega_2 < \omega_3 \right\}
+            \qquad
+            |A_{Gr}| = \binom{3}{3} = 1
+        \end{gather}
+        Da es sich um drei disjunkte Mengen handelt, gilt
+        $|A| = |A_R| + |A_{Ge}| + |A_{Gr}| = 25$.
+        Die Wahrscheinlichkeit, drei gleichfarbige Gummibärchen zu ziehen,
+        beträgt daher $P(A) = \frac{25}{286} \approx \num{0,0874}$.
     
     \item
         \begin{behaupt}
