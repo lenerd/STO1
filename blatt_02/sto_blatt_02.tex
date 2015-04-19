@@ -19,7 +19,7 @@
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\lhead{Stochastik 1 - Gruppe 5 - Blatt Nr. 2}
+\lhead{Stochastik 1 - Gruppe 5 - Blatt 2}
 \rhead{Lennart Braun, Merlin Koglin, Kai Robin Sachse}
 \cfoot{\thepage}
 
@@ -65,12 +65,11 @@
                     Die Behauptung muss daher gelten.
                 \end{proof}
                 
-                Würde ich eher direkt statt per Widerspruch zeigen. In etwa so: $P(\Omega)=1$ also gilt: $P(\Omega)=P(\Omega\cup\emptyset)=P(\Omega)+P(\emptyset)=1\Leftrightarrow P(\Omega)+P(\emptyset)-P(\Omega)=1-P(\Omega)\Leftrightarrow P(\emptyset)=1-1=0$
 
             \item
                 \begin{behaupt}
                     Für alle paarweise disjunkten Teilmengen
-                    $A_1, \ldots, A_k \subset \Omega, k \in \mathbb{N}$ gilt
+                    $A_1, \ldots, A_k \subset \Omega$, $k \in \mathbb{N}$ gilt
                     \begin{equation*}
                         P \left( \bigcup_{i=1}^k A_i \right)
                         = \sum_{i=1}^k P(A_i)
@@ -136,7 +135,10 @@
             \item
                 \begin{behaupt}
                     Für alle Teilmengen $A, B \subset \Omega$ gilt
-                    $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+				\begin{equation}
+                    P(A \cup B) = P(A) + P(B) - P(A \cap B)
+				\end{equation}                    
+
                 \end{behaupt}
                 \begin{proof}
                     $A$ und $B$ lassen sich in jeweils zwei disjunkte Teilmengen
@@ -171,11 +173,18 @@
 
 
     \item
+        \begin{behaupt}
+            Die Wahrscheinlichkeit in der gegebenen Situation drei gleichfarbige Gummibärchen zu ziehen 
+            liegt bei ca. $0,874$.
+        \end{behaupt}
+        
+        \begin{proof}
+% Oh man, bin nicht auf die Idee gekommen die Gummibärchen als unterscheidbar anzunehmen. Hab die ganze Zeit erfolglos versucht das irgendwie sinnvoll in eins unserer Systeme zu bringen ^^ Das Ergebnis hatte ich aber auch. Sollte daher stimmen ^^ Kann man in Github irgendwie Kommentare zu commits machen?      
         Wir nehmen an, Gummibärchen gleicher Farbe sind unterscheidbar.
-        Es sei $R = \{ r_1, \ldots, r_4 \}$ die Menge der roten Gummibärchen
+        Es sei $R := \{ r_1, \ldots, r_4 \}$ die Menge der roten Gummibärchen
         in der Tüte.
-        Analog sind $Ge = \{ ge_1, \ldots, ge_6 \}$ und
-        $Gr = \{ gr_1, \ldots, gr_3 \}$ die Mengen der gelben bzw. grünen
+        Analog sind $Ge := \{ ge_1, \ldots, ge_6 \}$ und
+        $Gr := \{ gr_1, \ldots, gr_3 \}$ die Mengen der gelben bzw. grünen
         Gummibärchen.
         Es sei $B = R \cup Ge \cup Gr$.
         Wir definieren eine Ordnung auf $B$: Es gelten $ge < gr < r$ sowie
@@ -217,6 +226,7 @@
         $|A| = |A_R| + |A_{Ge}| + |A_{Gr}| = 25$.
         Die Wahrscheinlichkeit, drei gleichfarbige Gummibärchen zu ziehen,
         beträgt daher $P(A) = \frac{25}{286} \approx \num{0,0874}$.
+        \end{proof}
     
     \item
         \begin{behaupt}
