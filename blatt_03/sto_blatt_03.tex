@@ -41,13 +41,18 @@
         \begin{behaupt}
             Sei $(\Omega, P)$ ein diskreter Wahrscheinlichkeitsraum.
             Sei $B \subset \Omega$ mit $P(B) > 0$ und $P(B^C) > 0$.
-            Dann gilt für alle $A \subset \Omega$
+            Dann gilt nicht für alle $A \subset \Omega$
             \begin{equation*}
                 P(A\ |\ B) = 1 - P(A\ |\ B^C)
             \end{equation*}
         \end{behaupt}
         \begin{proof}
-            
+            Wir betrachten Das Beispiel aus der ersten Präsenzaufgabe: Sei also $P(B)=0,6, P(A\cap B)=0,4, 
+            P(A|B=\frac{2}{3}$. 
+            Somit ist $P(B^C)=0,4$ und $P(A\cap B^C)=P(A\setminus B)=0,3$. Damit gilt nun:
+            \[P(A|B^C)=\frac{P(A|B^C)}{P(B^C)}=\frac{P(A\setminus B)}{P(B^C)}=\frac{0,3}{0,4}=\frac{3}{4}\]
+            Somit gilt 
+            \[\frac{2}{3}\ne 1-\frac{3}{4}=\frac{1}{4}\]
         \end{proof}
 
     \item
