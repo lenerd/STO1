@@ -1,0 +1,126 @@
+\documentclass[a4paper]{scrartcl}
+
+% font/encoding packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage[ngerman=ngerman-x-latest]{hyphsubst}
+
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{stmaryrd}
+\allowdisplaybreaks
+\usepackage[output-decimal-marker={,}]{siunitx}
+\usepackage[shortlabels]{enumitem}
+\usepackage[section]{placeins}
+
+\newtheorem*{behaupt}{Behauptung}
+\newcommand{\gdw}{\Leftrightarrow}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Stochastik 1 - Gruppe 5 - Blatt 3}
+\rhead{Lennart Braun, Merlin Koglin, Kai Robin Sachse}
+\cfoot{\thepage}
+
+
+\title{Stochastik 1 für Informatiker}
+\subtitle{Blatt 3 Hausaufgaben (Gruppe 5)}
+\author{
+    Lennart Braun (6523742), \\
+    Merlin Koglin (6450362), \\
+    Kai Robin Sachse (6450486)
+}
+\date{zum 28. April 2015}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}[label=\bfseries\arabic*.]
+    \item
+        \begin{behaupt}
+            Sei $(\Omega, P)$ ein diskreter Wahrscheinlichkeitsraum.
+            Sei $B \subset \Omega$ mit $P(B) > 0$ und $P(B^C) > 0$.
+            Dann gilt für alle $A \subset \Omega$
+            \begin{equation*}
+                P(A\ |\ B) = 1 - P(A\ |\ B^C)
+            \end{equation*}
+        \end{behaupt}
+        \begin{proof}
+            
+        \end{proof}
+
+    \item
+        Ein endlicher Wahrscheinlichkeitsraum $(\Omega, P)$ sei wie folgt
+        definiert.
+        \begin{equation*}
+            \Omega = \left\{ (\omega_1, \omega_2, \omega_3)
+                \in \{1, \ldots, 6\}^3 \right\}
+        \end{equation*}
+        Für $\omega = (\omega_1, \omega_2, \omega_3) \in \Omega$,
+        $i \in \{1, 2, 3\}$ und $j \in \{1, \ldots, 6\}$ bedeutet
+        $\omega_i = j$, dass im $i$-ten Wurf die Augenzahl gleich $j$ ist.
+        $P$ sei das Laplace-Maß auf $\Omega$, d.\,h. für alle $A \subset \Omega$
+        gilt $P(A) = \frac{|A|}{|\Omega|}$.
+
+        $A_k$ für $k \in \{1, \ldots, 6\}$ sei definiert als das Ereignis, dass
+        die Auganzahl im ersten Wurf gleich $k$ ist.
+        \begin{equation*}
+            A_k = \left\{ (\omega_1, \omega_2, \omega_3) \in \Omega \ \vert \ 
+            \omega_1 = k \right\}
+        \end{equation*}
+        $B$ sei das Ereignis, dass die Summe aller drei Würfe $9$ beträgt.
+        \begin{equation*}
+            \begin{split}
+                B &= \left\{ (\omega_1, \omega_2, \omega_3) \in \Omega \ \vert\ 
+                    \sum_{i=1}^3 \omega_i = 9 \right\} \\
+                    &= \Big\{ 
+                            (1, 2, 6), (1, 3, 5), (1, 4, 4), (1, 5, 3),
+                            (1, 6, 2), \\
+                    &\qquad (2, 1, 6), (2, 2, 5), (2, 3, 4), (2, 4, 3),
+                            (2, 5, 2), (2, 6, 1), \\
+                    &\qquad (3, 1, 5), (3, 2, 4), (3, 3, 3), (3, 4, 2),
+                            (3, 5, 1), \\
+                    &\qquad (4, 1, 4), (4, 2, 3), (4, 3, 2), (4, 4, 1), \\
+                    &\qquad (5, 1, 3), (5, 2, 2), (5, 3, 1), \\
+                    &\qquad (6, 1, 2), (6, 2, 1)
+                    \Big\}
+            \end{split}
+        \end{equation*}
+        $A_k \cap B$ enthält genau die Tupel, welche in der $k$-ten Zeile von
+        $B$ aufgeführt sind.
+        \begin{align*}
+            A_1 \cap B &= \left\{ (1, 2, 6), (1, 3, 5), (1, 4, 4), (1, 5, 3),
+                                  (1, 6, 2) \right\} \\
+            A_2 \cap B &= \left\{ (2, 1, 6), (2, 2, 5), (2, 3, 4), (2, 4, 3),
+                                  (2, 5, 2), (2, 6, 1) \right\} \\
+            A_3 \cap B &= \left\{ (3, 1, 5), (3, 2, 4), (3, 3, 3), (3, 4, 2),
+                                  (3, 5, 1) \right\} \\
+            A_4 \cap B &= \left\{ (4, 1, 4), (4, 2, 3), (4, 3, 2), (4, 4, 1)
+                          \right\} \\
+            A_5 \cap B &= \left\{ (5, 1, 3), (5, 2, 2), (5, 3, 1) \right\} \\
+            A_6 \cap B &= \left\{ (6, 1, 2), (6, 2, 1) \right\}
+        \end{align*}
+        Die Wahrscheinlichkeit, dass $A_k$ eintritt, gegeben, dass $B$ gilt
+        berechnet sich wie folgt.
+        \begin{equation*}
+            \begin{split}
+                P(A_k\ |\ B) &= \frac{P(A_k \cap B)}{P(B)} \\
+                &= \frac{|A_k \cap B| \cdot |\Omega|}{|\Omega| \cdot |B|} \\
+                &= \frac{|A_k \cap B|}{|B|}
+            \end{split}
+        \end{equation*}
+        \begin{align*}
+            P(A_1\ |\ B) &= \frac{5}{25} = \num{0,20} \\
+            P(A_2\ |\ B) &= \frac{6}{25} = \num{0,24} \\
+            P(A_3\ |\ B) &= \frac{5}{25} = \num{0,20} \\
+            P(A_4\ |\ B) &= \frac{4}{25} = \num{0,16} \\
+            P(A_5\ |\ B) &= \frac{3}{25} = \num{0,12} \\
+            P(A_6\ |\ B) &= \frac{2}{25} = \num{0,08} \\
+        \end{align*}
+
+    \item
+
+\end{enumerate}
+
+\end{document}
