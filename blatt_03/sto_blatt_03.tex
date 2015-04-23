@@ -47,19 +47,20 @@
             \end{equation*}
         \end{behaupt}
         \begin{proof}
-            Wir betrachten Das Beispiel aus der ersten Präsenzaufgabe: Sei also $P(B)=0,6, P(A\cap B)=0,4, 
-            P(A|B=\frac{2}{3}$. 
-            Somit ist $P(B^C)=0,4$ und $P(A\cap B^C)=P(A\setminus B)=0,3$. Damit gilt nun:
-            \[P(A|B^C)=\frac{P(A|B^C)}{P(B^C)}=\frac{P(A\setminus B)}{P(B^C)}=\frac{0,3}{0,4}=\frac{3}{4}\]
+            Wir betrachten das Beispiel aus der ersten Präsenzaufgabe: Sei nun also $P(B)=0,6$, $P(A\cap B)=0,4$ und 
+            $P(A|B)=\frac{2}{3}$, und $P(A\setminus B)=0,3$. 
+            Wir berechnen schnell $P(B^C)=1-0,6=0,4$ und $P(A\cap B^C)=P(A\setminus B)=0,3$. Damit gilt nun:
+            \[P(A|B^C)=\frac{P(A\cap B^C)}{P(B^C)}=\frac{P(A\setminus B)}{P(B^C)}=\frac{0,3}{0,4}=\frac{3}{4}\]
             Somit gilt 
             \[\frac{2}{3}\ne 1-\frac{3}{4}=\frac{1}{4}\]
+            Womit die Gleichung nicht für alle $A\subset\Omega$ gelten kann. 
         \end{proof}
 
     \item
         Ein endlicher Wahrscheinlichkeitsraum $(\Omega, P)$ sei wie folgt
         definiert.
         \begin{equation*}
-            \Omega = \left\{ (\omega_1, \omega_2, \omega_3)
+            \Omega := \left\{ (\omega_1, \omega_2, \omega_3)
                 \in \{1, \ldots, 6\}^3 \right\}
         \end{equation*}
         Für $\omega = (\omega_1, \omega_2, \omega_3) \in \Omega$,
@@ -71,7 +72,7 @@
         $A_k$ für $k \in \{1, \ldots, 6\}$ sei definiert als das Ereignis, dass
         die Auganzahl im ersten Wurf gleich $k$ ist.
         \begin{equation*}
-            A_k = \left\{ (\omega_1, \omega_2, \omega_3) \in \Omega \ \vert \ 
+            A_k := \left\{ (\omega_1, \omega_2, \omega_3) \in \Omega \ \vert \ 
             \omega_1 = k \right\}
         \end{equation*}
         $B$ sei das Ereignis, dass die Summe aller drei Würfe $9$ beträgt.
@@ -138,7 +139,7 @@
                 \end{behaupt}
                 \begin{proof}
                     $\Omega = \mathbb{N}_0$ ist eine abzählbare Menge.
-                    Nach Definition 1.10 ist $f\colon \Omega \to [0,1]$ die
+                    Nach Definition 1.10 ist daher $f\colon \Omega \to [0,1]$ die
                     Zähldichte genau eines diskreten Wahrscheinlichkeitsmaßes
                     auf $\Omega$, wenn
                     $\sum\limits_{\omega \in \Omega} f(\omega) = 1$ erfüllt ist.
@@ -162,7 +163,7 @@
                                     &= e^{-\lambda}
                                         \cdot \sum_{\omega \in \mathbb{N}_0}
                                         \frac{\lambda^\omega}{\omega!} \\
-                                    \stackrel{(\star)}{\gdw}
+                                    \stackrel{(\ast)}{\gdw}
                                     \sum_{\omega \in \mathbb{N}_0} f(\omega)
                                     &= e^{-\lambda} \cdot e^\lambda \\
                                     \gdw
@@ -170,17 +171,17 @@
                                     &= 1
                                 \end{split}
                             \end{equation*}
-                            Bei $(\star)$ wurde die Reihendarstellung der
+                            Bei $(\ast)$ wurde die Reihendarstellung der
                             Exponentialfunktion ausgenutzt.
 
                         \item
                             $f$ bildet auf ein Produkt von nichtnegativen Zahlen
                             ab, welches daher auch nichtnegativ ist.
                             Es gilt also $f\colon \Omega \to [0, \infty)$.
-                            Da die Summe über alle Urbilder von $f$ gleich $1$
+                            Da die Summe über alle Bilder von $f$ gleich $1$
                             ist und aus nichtnegativen Summanden besteht, kann
                             kein Summand einen Wert größer $1$ besitzen.
-                            Daher gilt auch $f\colon \Omega \to [0,1]$.
+                            Daher gilt sogar $f\colon \Omega \to [0,1]$.
 
                     \end{enumerate}
                     Es existiert also ein diskretes Wahrscheinlichkeitsmaß auf
@@ -188,7 +189,7 @@
                 \end{proof}
 
             \item
-                Es sei $f$ unter (a) angegeben mit $\lambda = 2$.
+                Es sei $f$ wie unter (a) angegeben mit $\lambda = 2$.
                 \begin{equation*}
                     f(\omega) = e^{-2} \cdot \frac{2^\omega}{\omega!}
                 \end{equation*}
