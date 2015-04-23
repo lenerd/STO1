@@ -120,6 +120,111 @@
         \end{align*}
 
     \item
+        \begin{enumerate}[label=(\alph*)]
+            \item
+                Es Sei $\Omega = \mathbb{N}_0$ und $\lambda > 0$
+                \begin{behaupt}
+                    \begin{equation*}
+                        f\colon \Omega \to \mathbb{R}, \qquad
+                        f(\omega)
+                        = e^{-\lambda} \cdot \frac{\lambda^\omega}{\omega!}
+                    \end{equation*}
+                    ist eine Zähldichte auf $\Omega$.
+                \end{behaupt}
+                \begin{proof}
+                    $\Omega = \mathbb{N}_0$ ist eine abzählbare Menge.
+                    Nach Definition 1.10 ist $f\colon \Omega \to [0,1]$ die
+                    Zähldichte genau eines diskreten Wahrscheinlichkeitsmaßes
+                    auf $\Omega$, wenn
+                    $\sum\limits_{\omega \in \Omega} f(\omega) = 1$ erfüllt ist.
+                    Zu zeigen ist, dass nicht nur
+                    $f\colon \Omega \to \mathbb{R}$ sondern auch
+                    \begin{itemize}
+                        \item $f\colon \Omega \to [0,1]$ sowie
+                        \item $\sum\limits_{\omega \in \Omega} f(\omega) = 1$
+                    \end{itemize}
+                    gelten.
+                    \begin{enumerate}
+                        \item
+                            \begin{equation*}
+                                \begin{split}
+                                    \sum_{\omega \in \mathbb{N}_0} f(\omega)
+                                    &= \sum_{\omega \in \mathbb{N}_0}
+                                        e^{-\lambda} \cdot
+                                        \frac{\lambda^\omega}{\omega!} \\
+                                    \gdw
+                                    \sum_{\omega \in \mathbb{N}_0} f(\omega)
+                                    &= e^{-\lambda}
+                                        \cdot \sum_{\omega \in \mathbb{N}_0}
+                                        \frac{\lambda^\omega}{\omega!} \\
+                                    \stackrel{(\star)}{\gdw}
+                                    \sum_{\omega \in \mathbb{N}_0} f(\omega)
+                                    &= e^{-\lambda} \cdot e^\lambda \\
+                                    \gdw
+                                    \sum_{\omega \in \mathbb{N}_0} f(\omega)
+                                    &= 1
+                                \end{split}
+                            \end{equation*}
+                            Bei $(\star)$ wurde die Reihendarstellung der
+                            Exponentialfunktion ausgenutzt.
+
+                        \item
+                            $f$ bildet auf ein Produkt von nichtnegativen Zahlen
+                            ab, welches daher auch nichtnegativ ist.
+                            Es gilt also $f\colon \Omega \to [0, \infty)$.
+                            Da die Summe über alle Urbilder von $f$ gleich $1$
+                            ist und aus nichtnegativen Summanden besteht, kann
+                            kein Summand einen Wert größer $1$ besitzen.
+                            Daher gilt auch $f\colon \Omega \to [0,1]$.
+
+                    \end{enumerate}
+                    Es existiert also ein diskretes Wahrscheinlichkeitsmaß auf
+                    $\Omega$, welches $f$ zur Zähldichte hat.
+                \end{proof}
+
+            \item
+                Es sei $f$ unter (a) angegeben mit $\lambda = 2$.
+                \begin{equation*}
+                    f(\omega) = e^{-2} \cdot \frac{2^\omega}{\omega!}
+                \end{equation*}
+                Für das diskrete Wahrscheinlichkeitsmaß $P$ gilt nach Satz 1.10
+                \begin{equation*}
+                    P(A) = \sum_{\omega \in A} f(\omega)
+                \end{equation*}
+                \begin{behaupt}
+                    Für die Wahrscheinlichkeiten $P(\{0, 1, 2\})$ und
+                    $P(\{0\}\ |\ \{0, 1, 2\})$ gelten
+                    \begin{align*}
+                        P(\{0, 1, 2\}) &\approx \num{0,6767} \\
+                        P(\{0\}\ |\ \{0, 1, 2\}) &\approx \num{0,2000}
+                    \end{align*}
+                \end{behaupt}
+                \begin{proof}
+                    \begin{equation*}
+                        \begin{split}
+                            P(\{0, 1, 2\}) &=
+                            \sum_{\omega \in \{0, 1, 2\}} f(\omega) \\
+                            &\approx \num{0,1353} + \num{0,2707} + \num{0.2707}
+                            \\
+                            &\approx \num{0,6767}
+                        \end{split}
+                    \end{equation*}
+                    \begin{equation*}
+                        \begin{split}
+                            P(\{0\}\ |\ \{0, 1, 2\})
+                            &= \frac{P(\{0\} \cap \{0, 1, 2\})}{P(\{0, 1, 2\})}
+                            \\
+                            &= \frac{P(\{0\})}{P(\{0, 1, 2\})} \\
+                            &= \frac{\sum\limits_{\omega \in \{0\}} f(\omega)}
+                                {\sum\limits_{\omega \in \{0, 1, 2\}} f(\omega)}
+                                \\
+                            &\approx \frac{\num{0.1353}}{\num{0.6767}}
+                            \approx \num{0,2000}
+                        \end{split}
+                    \end{equation*}
+                \end{proof}
+
+        \end{enumerate}
 
 \end{enumerate}
 
