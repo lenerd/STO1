@@ -47,13 +47,22 @@
             \end{equation*}
         \end{behaupt}
         \begin{proof}
-            Wir betrachten das Beispiel aus der ersten Präsenzaufgabe: Sei nun also $P(B)=0,6$, $P(A\cap B)=0,4$ und 
-            $P(A|B)=\frac{2}{3}$, und $P(A\setminus B)=0,3$. 
-            Wir berechnen schnell $P(B^C)=1-0,6=0,4$ und $P(A\cap B^C)=P(A\setminus B)=0,3$. Damit gilt nun:
-            \[P(A|B^C)=\frac{P(A\cap B^C)}{P(B^C)}=\frac{P(A\setminus B)}{P(B^C)}=\frac{0,3}{0,4}=\frac{3}{4}\]
+            Wir betrachten das Beispiel aus der ersten Präsenzaufgabe:
+            Sei nun also $P(B) = \num{0,6}$, $P(A \cap B) = \num{0,4}$ und
+            $P(A\ |\ B) = \frac{2}{3}$, und $P(A \setminus B) = \num{0,3}$.
+            Wir berechnen schnell $P(B^C) = 1 - \num{0,6} = \num{0,4}$ und
+            $P(A \cap B^C) = P(A \setminus B) = \num{0,3}$.
+            Damit gilt nun:
+            \begin{equation*}
+                P(A\ |\ B^C) = \frac{P(A \cap B^C)}{P(B^C)}
+                = \frac{P(A \setminus B)}{P(B^C)} = \frac{\num{0,3}}{\num{0,4}}
+                = \frac{3}{4}
+            \end{equation*}
             Somit gilt 
-            \[\frac{2}{3}\ne 1-\frac{3}{4}=\frac{1}{4}\]
-            Womit die Gleichung nicht für alle $A\subset\Omega$ gelten kann. 
+            \begin{equation*}
+                \frac{2}{3} \neq 1 - \frac{3}{4} = \frac{1}{4} \text{ .}
+            \end{equation*}
+            Womit die Gleichung nicht für alle $A \subset \Omega$ gelten kann. 
         \end{proof}
 
     \item
