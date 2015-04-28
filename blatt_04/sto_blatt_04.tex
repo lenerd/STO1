@@ -1,0 +1,123 @@
+\documentclass[a4paper]{scrartcl}
+
+% font/encoding packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage[ngerman=ngerman-x-latest]{hyphsubst}
+
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{stmaryrd}
+\allowdisplaybreaks
+\usepackage[output-decimal-marker={,}]{siunitx}
+\usepackage[shortlabels]{enumitem}
+\usepackage[section]{placeins}
+
+\newtheorem*{behaupt}{Behauptung}
+\newcommand{\gdw}{\Leftrightarrow}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Stochastik 1 - Gruppe 5 - Blatt 4}
+\rhead{Lennart Braun, Merlin Koglin, Kai Robin Sachse}
+\cfoot{\thepage}
+
+
+\title{Stochastik 1 für Informatiker}
+\subtitle{Blatt 4 Hausaufgaben (Gruppe 5)}
+\author{
+    Lennart Braun (6523742), \\
+    Merlin Koglin (6450362), \\
+    Kai Robin Sachse (6450486)
+}
+\date{zum 5. Mai 2015}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}[label=\bfseries\arabic*.]
+    \item
+        \begin{behaupt}
+            
+        \end{behaupt}
+        \begin{proof}
+           
+        \end{proof}
+
+    \item	        
+        	\begin{behaupt}
+        	
+        	\end{behaupt}
+        	\begin{proof}
+        	Wir berechnen zuerst die W. von $A,B$ und $C$:
+			\begin{equation*}
+			P(A)=\frac{4}{6}=\frac{2}{3};\; P(B)=P(C)=\frac{3}{6}=\frac{1}{2}
+			\end{equation*}
+			Wir bestimmen nun für jedes Paar den Schnitt und prüfen dann ob die Gleichung aus $2.6$ gilt:\\     
+        	$A\cap B=\{4\}\Rightarrow P(A\cap B)=\frac{1}{6}\ne \frac{1}{3} = 
+        	\frac{2}{3}\cdot \frac{1}{2} =P(A)\cdot P(B)$\\
+        	$B\cap C=\{4,5,6\}\Rightarrow P(B\cap C)=\frac{3}{6}=\frac{1}{2} \ne \frac{1}{4} =
+        	\frac{1}{2}\cdot \frac{1}{2} =P(B)\cdot P(C)$\\
+        	$A\cap C=\{4\}\Rightarrow P(A\cap C)=\frac{1}{6}\ne \frac{1}{3} =
+        	\frac{2}{3}\cdot \frac{1}{2} =P(A)\cdot P(C)$
+        	\end{proof}
+        	
+        	
+        	\begin{behaupt}
+        	Es gilt $P(A\cap B\cap C)=P(A)\cdot P(B)\cdot P(C)$
+        	\end{behaupt}
+        	\begin{proof}
+        	$A\cap B\cap C=\{4\}\Rightarrow P(A\cap B\cap C)=\frac{1}{6} = \frac{1}{6}=
+        	\frac{2}{3}\cdot \frac{1}{2}\cdot \frac{1}{2}= P(A)\cdot P(B)\cdot P(C)$
+        	\end{proof}
+        	
+        	\begin{behaupt}
+        	Die drei Mengen sind nicht stochastisch abhängig.
+        	\end{behaupt}
+        	\begin{proof}
+        	Um zu prüfen, ob eine Menge von Ereignisse st. unabh. ist, müssen wir jede
+        	Teilmenge auf Unabhängigkeit prüfen. Da in a) aber schon $A$ und $B$ nicht
+        	unabhängig sind, sind erst recht nicht $A$ und $B$ und $C$ unabhängig.
+        	\end{proof}
+
+    \item
+                
+                \begin{behaupt}
+                	Die kostengünstigste Konstruktionsmöglichkeit,
+					die die gewünschte Versorgungssicherheit gewährleistet,
+					ist, wenn man die Strecken $a-c$ und $a-d$ mit der schlechtesten Qualität und
+					die anderen beiden Streckenabschnitte mit der besten Qualität baut. Die Kosten
+					belaufen sich dabei auf $400$ Euro.     
+                \end{behaupt}
+                \begin{proof}
+                	Seien $A,B,C,D$ die Ereignisse, dass jeweils die Strecken
+					$ac$,$cb$,$ad$ bzw. $db$ funktionieren. Dann beschreiben $A\cap B$ und 
+					$C\cap D$ jeweils das Ereignis, dass die beiden Gesamtstrecken $ac-cb$ bzw.
+					$ad-db$ funktionieren. Das Ereignis, dass mindestens eine Strecke
+					funktioniert ist folglich $(A\cap B)\cup (C\cap D)$.
+					Als Grundraum können wir $\Omega=\{0,1\}^4$ betrachten, wobei zB für $A$
+					gilt $A=\{(w_1,w_2,w_3,w_4)\in\Omega|w_1=1\}$ sind. Da die Ereignisse
+					$A,B,C,D$ stochastisch unabhängig sind, ergibt sich folgende Gleichung.
+					\begin{align*}
+					P((A\cap B)\cup (C\cap D))
+					&=P(A\cap B)+P(C\cap D)-P(A\cap B\cap C\cap D)\\
+					&=P(A)\cdot P(B)+P(C)\cdot P(D)-P(A)\cdot P(B)\cdot P(C)\cdot P(D)
+					\end{align*}
+					Durch geschicktes einsetzten erhält man, dass für:\\
+					$P(A)=0.95\quad P(B)=0.99 \quad P(C)=0.95 \quad P(D)=0.99 \Rightarrow
+					P((A\cap B)\cup (C\cap D))=0.99646$\\
+					$P(A)=0.9\quad P(B)=0.99 \quad P(C)=0.9 \quad P(D)=0.99 \Rightarrow
+					P((A\cap B)\cup (C\cap D))=0.996219$\\
+					Wobei die untere Lösung deutlich Preiswerter ist mit $500$ Euro vs. $400$ Euro.\\
+					($P(A)$ und $P(B)$ ($P(C)$ und $P(D)$) lassen sich natürlich vertauschen)
+					Es gibt außerdem keine 
+					billigere Lösung, da alle Kombinationen mit weniger als 2 von den 
+					teuersten Strecken die gewünschte Wahrscheinlichkeit sowieso nicht erreichen.    
+                \end{proof}
+
+                
+
+\end{enumerate}
+
+\end{document}
