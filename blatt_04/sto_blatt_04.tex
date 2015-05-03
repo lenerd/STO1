@@ -198,6 +198,14 @@
                     % Habe da andere Werte raus:
                     % In [20]: 0.9 * 0.99 + 0.9 * 0.99 - 0.9 * 0.99 * 0.9 * 0.99
                     % Out[20]: 0.988119
+                    
+                    % Merlin:
+                    % Ich denke Kairo hat sich hier verschrieben und meinte: 
+                    % P(A)=0.9 P(B)=0.9 P(C)=0.99 P(D)=0.99 bzw
+                    % P(A)=0.99 P(B)=0.99 P(C)=0.9 P(D)=0.9
+                    % Das entspricht seiner (und auch deiner) preiswertetens Konstruktion.
+                   
+                             
                     Wobei die untere Lösung deutlich Preiswerter ist mit $500$ Euro vs. $400$ Euro.\\
                     ($P(A)$ und $P(B)$ ($P(C)$ und $P(D)$) lassen sich natürlich vertauschen)
                     Es gibt außerdem keine 
@@ -205,13 +213,15 @@
                     teuersten Strecken die gewünschte Wahrscheinlichkeit sowieso nicht erreichen.    
                 \end{proof}
 
+             
+
                 \begin{proof}
                     Es sei $L = \{1, 2, 3\}$ die Menge der Leitungstypen.
                     Im Folgenden bezeichnen $A, B, C, D$ die Kanten
                     $(a, c), (c, b), (a, d), (d, b)$.
 
-                    Die Menge der möglichen Konfigurationen sei $C = L^4$.
-                    Für $(A, B, C, D) \in C$ bedeutet $A = 2$, dass die
+                    Die Menge der möglichen Konfigurationen sei $C = L^4$.%Hier solltest du statt C eine andere Benennung wählen, C hast du ja schon als Kante definiert:)
+                    Für $(A, B, C, D) \in C$ bedeutet $A = 2$, dass die 
                     Leitung $A$ in der Ausführung 2 für 100 \EUR gebaut wird und
                     mit einer Wahrscheinlichkeit von \num{0,05} ausfällt.
                     Für unsere Rechnung sind in $C$ jedoch redundante Fälle
@@ -298,7 +308,7 @@
                             $(3, 1, x, y)$ & \num{0.891} & \num{0.979} & \num{0.988} \\
                             $(2, 2, x, y)$ & \num{0.902} & \num{0.981} & \num{0.990} \\
                             $(3, 2, x, y)$ & \num{0.941} & \num{0.989} & \num{0.996} \\
-                            $(3, 3, x, y)$ & \num{0.980} & \num{0.996} & \num{1.000} \\
+                            $(3, 3, x, y)$ & \num{0.980} & \num{0.996} & \num{1.000} \\%*(siehe unten)
                         \end{tabular}
                         \caption{Abschätzungen der Gesamtwahrscheinlichkeit}
                         \label{tab:absch}
@@ -332,6 +342,10 @@
                         \caption{In Frage kommende Konfigurationen}
                         \label{tab:konf}
                     \end{table}
+				% Die Werte hier sind ja gerundete Werte, das ist ein bisschen gefährlich
+				% denn laut Tabelle(n) funktioniert bei (3, 3, 3, 3) IMMER eine Leitung, 
+				% das sagt P((A \cap B) \cup (C \cap D)) = 1 aus
+				% 
 
                 \end{proof}
 
