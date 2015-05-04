@@ -168,51 +168,51 @@
                     Strecke die billigsten Verbindungen.
                     Die Kosten betragen $400\,\text{\EUR}$.
                 \end{behaupt}
-                \begin{proof}
-                    Seien $A, B, C, D$ die Ereignisse, dass jeweils die Strecken
-                    $ac$, $cb$, $ad$ bzw. $db$ funktionieren.
-                    Dann beschreiben $A\cap B$ und $C\cap D$ jeweils das
-                    Ereignis, dass die beiden Gesamtstrecken $ac-cb$ bzw.
-                    $ad-db$ funktionieren.
-                    Das Ereignis, dass mindestens eine Strecke
-                    funktioniert ist folglich $(A \cap B)\cup (C\cap D)$.
-                    Als Grundraum können wir $\Omega = \{0, 1\}^4$ betrachten,
-                    wobei z.\,B. für $A$ gilt
-                    $A = \{(w_a, w_b, w_c, w_d) \in \Omega \ |\ w_a = 1\}$ sind.
-                    Da die Ereignisse $A, B, C, D$ stochastisch unabhängig sind,
-                    ergibt sich folgende Gleichung:
-                    \begin{equation*}
-                        \begin{split}
-                            P((A \cap B) \cup (C \cap D))
-                            &= P(A \cap B) + P(C \cap D)
-                               - P(A \cap B \cap C \cap D) \\
-                            &= P(A) \cdot P(B) + P(C) \cdot P(D)
-                               - P(A) \cdot P(B) \cdot P(C) \cdot P(D)
-                        \end{split}
-                    \end{equation*}
-                    Durch geschicktes einsetzten erhält man, dass für:\\
-                    $P(A)=0.95\quad P(B)=0.99 \quad P(C)=0.95 \quad P(D)=0.99 \Rightarrow
-                    P((A\cap B)\cup (C\cap D))=0.99646$\\
-                    $P(A)=0.9\quad P(B)=0.99 \quad P(C)=0.9 \quad P(D)=0.99 \Rightarrow
-                    P((A\cap B)\cup (C\cap D))=0.996219$\\
+%                \begin{proof}
+%                    Seien $A, B, C, D$ die Ereignisse, dass jeweils die Strecken
+%                    $ac$, $cb$, $ad$ bzw. $db$ funktionieren.
+%                    Dann beschreiben $A\cap B$ und $C\cap D$ jeweils das
+%                    Ereignis, dass die beiden Gesamtstrecken $ac-cb$ bzw.
+%                    $ad-db$ funktionieren.
+%                    Das Ereignis, dass mindestens eine Strecke
+%                    funktioniert ist folglich $(A \cap B)\cup (C\cap D)$.
+%                    Als Grundraum können wir $\Omega = \{0, 1\}^4$ betrachten,
+%                    wobei z.\,B. für $A$ gilt
+%                    $A = \{(w_a, w_b, w_c, w_d) \in \Omega \ |\ w_a = 1\}$ sind.
+%                    Da die Ereignisse $A, B, C, D$ stochastisch unabhängig sind,
+%                    ergibt sich folgende Gleichung:
+%                    \begin{equation*}
+%                        \begin{split}
+%                            P((A \cap B) \cup (C \cap D))
+%                            &= P(A \cap B) + P(C \cap D)
+%                               - P(A \cap B \cap C \cap D) \\
+%                            &= P(A) \cdot P(B) + P(C) \cdot P(D)
+%                               - P(A) \cdot P(B) \cdot P(C) \cdot P(D)
+%                        \end{split}
+%                    \end{equation*}
+%                    Durch geschicktes einsetzten erhält man, dass für:\\
+%                    $P(A)=0.95\quad P(B)=0.99 \quad P(C)=0.95 \quad P(D)=0.99 \Rightarrow
+%                    P((A\cap B)\cup (C\cap D))=0.99646$\\
+%                    $P(A)=0.9\quad P(B)=0.99 \quad P(C)=0.9 \quad P(D)=0.99 \Rightarrow
+%                    P((A\cap B)\cup (C\cap D))=0.996219$\\
                     % Habe da andere Werte raus:
                     % In [20]: 0.9 * 0.99 + 0.9 * 0.99 - 0.9 * 0.99 * 0.9 * 0.99
                     % Out[20]: 0.988119
-                    
+%                   
                     % Merlin:
                     % Ich denke Kairo hat sich hier verschrieben und meinte: 
                     % P(A)=0.9 P(B)=0.9 P(C)=0.99 P(D)=0.99 bzw
                     % P(A)=0.99 P(B)=0.99 P(C)=0.9 P(D)=0.9
                     % Das entspricht seiner (und auch deiner) kostenoptimalen Konstruktion.
-                   
-                    Wobei die untere Lösung deutlich Preiswerter ist mit $500$ Euro vs. $400$ Euro.\\
-                    ($P(A)$ und $P(B)$ ($P(C)$ und $P(D)$) lassen sich natürlich vertauschen)
-                    Es gibt außerdem keine 
-                    billigere Lösung, da alle Kombinationen mit weniger als 2 von den 
-                    teuersten Strecken die gewünschte Wahrscheinlichkeit sowieso nicht erreichen.    
-                \end{proof}
-
-             
+%                  
+%                    Wobei die untere Lösung deutlich Preiswerter ist mit $500$ Euro vs. $400$ Euro.\\
+%                    ($P(A)$ und $P(B)$ ($P(C)$ und $P(D)$) lassen sich natürlich vertauschen)
+%                    Es gibt außerdem keine 
+%                    billigere Lösung, da alle Kombinationen mit weniger als 2 von den 
+%                    teuersten Strecken die gewünschte Wahrscheinlichkeit sowieso nicht erreichen.    
+%                \end{proof}
+%
+%
 
                 \begin{proof}
                     Es sei $L = \{1, 2, 3\}$ die Menge der Leitungstypen.
