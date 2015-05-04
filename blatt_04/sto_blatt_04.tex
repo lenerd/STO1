@@ -219,11 +219,14 @@
                     Im Folgenden bezeichnen $A, B, C, D$ die Kanten
                     $(a, c), (c, b), (a, d), (d, b)$.
 
-                    Die Menge der möglichen Konfigurationen sei $C = L^4$.%Hier solltest du statt C eine andere Benennung wählen, C hast du ja schon als Kante definiert:)
-                    Für $(A, B, C, D) \in C$ bedeutet $A = 2$, dass die 
+                    Die Menge der möglichen Konfigurationen sei $K = L^4$.
+                    % Hier solltest du statt C eine andere Benennung wählen,
+                    % C hast du ja schon als Kante definiert:)
+                    % Lennart: Wäre besser ...
+                    Für $(A, B, C, D) \in K$ bedeutet $A = 2$, dass die 
                     Leitung $A$ in der Ausführung 2 für 100 \EUR gebaut wird und
                     mit einer Wahrscheinlichkeit von \num{0,05} ausfällt.
-                    Für unsere Rechnung sind in $C$ jedoch redundante Fälle
+                    Für unsere Rechnung sind in $K$ jedoch redundante Fälle
                     enthalten, welche durch eine andere Benennung in einander
                     übergehen:
                     Für die Gesamtwahrscheinlichkeit macht keinen Unterschied ob
@@ -234,10 +237,10 @@
                     vertauscht werden, sodass $(1, 2, 3, 3)$ und $(2, 1, 3, 3)$
                     äquivalent sind.
                     Wir können also ohne Einschränkung die Menge an
-                    verschiedenen Konfigurationen $C'$ definieren:
+                    verschiedenen Konfigurationen $K'$ definieren:
                     \begin{equation*}
-                        C' := \Big\{ 
-                            (A, B, C, D) \in C \ |\ 
+                        K' := \Big\{ 
+                            (A, B, C, D) \in K \ |\ 
                             (p_A \leq p_B) \land (p_C \leq p_D) \land
                             (p_A \cdot p_B \leq p_C \cdot p_D)
                         \Big\}
@@ -251,7 +254,7 @@
                     Da auch die obere und die untere Leitung vertauscht werden
                     können, fordern wir, dass die obere Leitung mindestens so
                     verlässlich ist wie die untere.
-                    Damit gibt es $|C'| = 21$ Möglichkeiten.
+                    Damit gibt es $|K'| = 21$ Möglichkeiten.
                     (Urnenmodell mit sechs Kugeln: Ziehen von zwei Kugeln mit
                     Zurücklegen und ohne Berücksichtigung der Reihenfolge).
 
@@ -268,7 +271,7 @@
                     Für $A$ gilt $A = \{(\omega_A, \omega_B, \omega_C, \omega_D)
                     \in \Omega \ |\ \omega_A = 1\}$ ($B, C, D$ analog).
                     Das Wahrscheinlichkeitsmaß $P$ ergibt sich aus der
-                    verwendeten Konfiguration $c \in C'$.
+                    verwendeten Konfiguration $c \in K'$.
                     Ist $c = (A, B, C, D)$ so ist $P(A) = 1 - p_A$ aus der
                     Aufgabenstellung.
                     \begin{equation*}
