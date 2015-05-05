@@ -229,7 +229,7 @@
                     Für unsere Rechnung sind in $K$ jedoch redundante Fälle
                     enthalten, welche durch eine andere Benennung in einander
                     übergehen:
-                    Für die Gesamtwahrscheinlichkeit macht keinen Unterschied ob
+                    Für die Gesamtwahrscheinlichkeit macht es keinen Unterschied, ob
                     die Konfiguration $(1, 1, 2, 2)$ oder die Konfiguration
                     $(2, 2, 1, 1)$ gebaut wird.
                     Die obere und die untere Strecke sind also austauschbar.
@@ -245,6 +245,8 @@
                             (p_A \cdot p_B \leq p_C \cdot p_D)
                         \Big\}
                     \end{equation*}
+                    Wobei $p$ die Ausfallwahrscheinlichkeit der im Indize
+                    genannten Leitung ist.
                     Es werden also die Konfigurationen betrachtet, in denen
                     jeweils die erste der beiden Teilstrecken mindestens so
                     verlässlich ist wie die zweite.
@@ -260,7 +262,7 @@
 
                     Die Ereignisse, dass Leitungen (nicht) ausfallen sind
                     stochastisch unabhängig von einander.
-                    Im Kontext der Wahrscheinlichkeiten bezeichnen wir mit $A$
+                    Im Kontext der folgenden Wahrscheinlichkeiten bezeichnen wir ab nun mit $A$
                     das Ereignis, dass die dazugehörige Strecke $(a, c)$ nicht
                     ausfällt (analog für $B, C, D$). 
                     Dann beschreiben $A \cap B$ und $C \cap D$ die Ereignisse,
@@ -285,6 +287,7 @@
                                \cdot (1 - P(A \cap B))
                        \end{split}
                     \end{equation*}
+%					Hier hätte ich noch weiter aufgeteilt zu $P(A\cap B)=P(A)\cdot P(B) aber es klappt 							ja auch gut so wie es jetzt ist.^^
                     Aus der Wahl unserer Konfiguration folgt:
                     \begin{equation*}
                         \num{0.9}^2 \leq P(C \cap D) \leq P(A \cap B)
@@ -326,7 +329,7 @@
                     (oder andersherum).
                     \begin{table}
                         \centering
-                        \begin{tabular}{l|l|l|l}
+                        \begin{tabular}{l|l|l}
                             Konfiguration & $P((A \cap B) \cup (C \cap D))$ & Preis \\
                             \hline
                             $(3, 2, 1, 1)$ & \num{0.988695} & \num{350}\,\EUR \\
