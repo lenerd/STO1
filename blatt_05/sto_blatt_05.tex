@@ -15,6 +15,7 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage[section]{placeins}
 \usepackage{float}
+\usepackage{units}
 
 \newtheorem*{behaupt}{Behauptung}
 \newcommand{\gdw}{\Leftrightarrow}
@@ -76,41 +77,176 @@
 
         \end{enumerate}
 
-    \item	        
-        Seien $X:\Omega\rightarrow S_1,Y:\Omega\rightarrow S_2$ Zv. auf disk. Wraum $(\Omega,P)$
-        mit $S_1,S_2$ höchstens abz. und $f_{(X,Y)}(x,y)=P\{X=x,Y=y\}\; x\in S_1,y\in S_2$
-        Zähldichte von $(X,Y)$
+    \item
+        Seien $X \colon \Omega \to S_1, Y \colon \Omega \to S_2$
+        Zufallsvariablen auf einem diskreten Wahrscheinlichkeitsraum
+        $(\Omega, P)$ un seien $S_1, S_2$ höchstens abzählbar.
+
+        Sei $f_{(X,Y)}(x,y) = P\{X = x, Y = y\}\; x \in S_1, y \in S_2$ die
+        Zähldichte von $(X, Y)$.
         \begin{enumerate}[label=(\alph*)]
             \item
                 \begin{behaupt}
-                    Es gilt
+                    Seien $f_X(x) = P\{X = x\}, x \in S_1$ und
+                    $f_Y(y) = P\{Y = Y\}, y \in S_2$ die Zähldichen von $X$ bzw.
+                    $Y$.
+                    Es gelten folgende Gleichungen:
                     \begin{align*}
-                    f_X(x)=\sum_{y\in S_2} f_{(X,Y)}(x,y),\; x\in S_1\\
-                    f_Y(y)=\sum_{x\in S_1} f_{(X,Y)}(x,y),\; y\in S_2\\
+                    f_X(x) = \sum_{y \in S_2} f_{(X,Y)}(x, y), \; x \in S_1 \\
+                    f_Y(y) = \sum_{x \in S_1} f_{(X,Y)}(x, y), \; y \in S_2 \\
                     \end{align*}
                 \end{behaupt}
                 \begin{proof}
-                
-                \end{proof}
-                
-            \item
-                \begin{behaupt}
-                    Für $S_1=\{0,1,2\}$ und $S_2=\{0,1\}$ gilt $f_X(x)=$ BLUBB und $f_Y(y)=$ BLUBB
-                \end{behaupt}
-                \begin{proof}
-                    
-                \end{proof}
-                
-            \item
-                \begin{behaupt}
-                    $X,Y$ sind (nicht) stoch unabh.
-                \end{behaupt}
-                \begin{proof}
-                    
-                \end{proof}
-        \end{enumerate}
+                    Es sei $x \in S_1$.
+                    \begin{equation*}
+                        \begin{split}
+                            f_X(x) &= P^X\{ x \} \\
+                            &= P\{ X = x \} \\
+                            &= P\{ \omega \in \Omega \ |\ X(\omega) = x \} \\
+                            &\stackrel{(\star)}{=} P \left( \bigcup_{y \in S_2}
+                                \{ \omega \in \Omega \ |\ X(\omega) = x
+                                \land Y(\omega) = y \} \right) \\
+                            &= \sum_{y \in S_2} P \{ \omega \in \Omega \ |\ 
+                                X(\omega) = x \land Y(\omega) = y \} \\
+                            &= \sum_{y \in S_2} P \{ X = x \land Y = y \} \\
+                            &= \sum_{y \in S_2} P \{ (X, Y) = (x, y) \} \\
+                            &= \sum_{y \in S_2} P^{(X, Y)} \{ (x, y) \} \\
+                            &= \sum_{y \in S_2} f_{(X, Y)} (x, y)
+                        \end{split}
+                    \end{equation*}
+                    $(\star)$ Die Menge wird durch $Y$ in disjunkte Teilmengen
+                    partitioniert.
 
-                
+                    Für die zweite Gleichung wird analog für $y \in S_2$
+                    vorgegangen:
+                    \begin{equation*}
+                        \begin{split}
+                            f_Y(y) &= P^Y\{ y \} \\
+                            &= P\{ Y = y \} \\
+                            &= P\{ \omega \in \Omega \ |\ Y(\omega) = y \} \\
+                            &= P \left( \bigcup_{x \in S_1}
+                                \{ \omega \in \Omega \ |\ Y(\omega) = y
+                                \land X(\omega) = x \} \right) \\
+                            &= \sum_{x \in S_1} P \{ \omega \in \Omega \ |\ 
+                                Y(\omega) = y \land X(\omega) = x \} \\
+                            &= \sum_{x \in S_1} P \{ X = x \land Y = y \} \\
+                            &= \sum_{x \in S_1} P \{ (X, Y) = (x, y) \} \\
+                            &= \sum_{x \in S_1} P^{(X, Y)} \{ (x, y) \} \\
+                            &= \sum_{x \in S_1} f_{(X, Y)} (x, y)
+                        \end{split}
+                    \end{equation*}
+
+                \end{proof}
+
+            \item Sei nun $S_1 = \{ 0, 1, 2 \}$ und $S_2 = \{ 0, 1 \}$.
+                Sei die Zähldichte $f_{(X, Y)}(x, y)$ von $(X, Y)$ in Tabelle
+                \ref{tab:zdichte-fxy} angegeben.
+                \begin{table}[H]
+                    \centering
+                    \begin{tabular}{c|ccc}
+                            &     & $x$ &     \\
+                        $y$ & $0$ & $1$ & $2$ \\ \hline
+                        $0$ & $\nicefrac{1}{4}$ & $\nicefrac{1}{6}$
+                        & $\nicefrac{1}{12}$ \\
+                        $1$ & $\nicefrac{1}{6}$ & $\nicefrac{1}{9}$
+                        & $\nicefrac{2}{9}$ \\
+                    \end{tabular}
+                    \caption{Wertetabelle der Zähldichte $f_{(X, Y)}$}
+                    \label{tab:zdichte-fxy}
+                \end{table}
+                \begin{enumerate}[label=(\alph{enumi}.\arabic*)]
+                    \item
+                        \begin{behaupt}
+                            Für $f_X$ und $f_Y$ gelten die folgenden
+                            Wertetabellen.
+                            \begin{table}[H]
+                                \centering
+                                \begin{tabular}{c|ccc}
+                                    $x$ & $0$ & $1$ & $2$ \\ \hline
+                                    $f_X(x)$ & $\nicefrac{15}{36}$
+                                        & $\nicefrac{10}{36}$
+                                        & $\nicefrac{11}{36}$ \\
+                                \end{tabular}
+                                \quad
+                                \begin{tabular}{c|cc}
+                                    $y$ & $0$ & $1$ \\ \hline
+                                    $f_Y(y)$ & $\nicefrac{1}{2}$
+                                        &  $\nicefrac{1}{2}$ \\
+                                \end{tabular}
+                                \caption{Wertetabellen der Zähldichten $f_X$ und
+                                    $f_Y$}
+                                \label{tab:zdichten-fx-fy}
+                            \end{table}
+                        \end{behaupt}
+                        \begin{proof}
+                            Wir verwenden die Gleichungen aus der vorherigen
+                            Aufgabe.
+                            \begin{align*}
+                                \begin{split}
+                                    f_X(0) &= \sum_{y \in S_2} f_{(X, Y)}(0, y)
+                                    = f_X(0, 0) + f_X(0, 1) \\
+                                    &= \frac{1}{4} + \frac{1}{6}
+                                    = \frac{5}{12} = \frac{15}{36}
+                                \end{split} \\
+                                \begin{split}
+                                    f_X(1) &= \sum_{y \in S_2} f_{(X, Y)}(1, y)
+                                    = f_X(1, 0) + f_X(1, 1) \\
+                                    &= \frac{1}{6} + \frac{1}{9}
+                                    = \frac{5}{18} = \frac{10}{36}
+                                \end{split} \\
+                                \begin{split}
+                                    f_X(2) &= \sum_{y \in S_2} f_{(X, Y)}(2, y)
+                                    = f_X(2, 0) + f_X(2, 1) \\
+                                    &= \frac{1}{12} + \frac{2}{9}
+                                    = \frac{11}{36}
+                                \end{split} \\
+                                \begin{split}
+                                    f_Y(0) &= \sum_{x \in S_1} f_{(X, Y)}(x, 0)
+                                    = f_Y(0, 0) + f_Y(1, 0) + f_Y(2, 0) \\
+                                    &= \frac{1}{4} + \frac{1}{6} + \frac{1}{12}
+                                    = \frac{6}{12} = \frac{1}{2}
+                                \end{split} \\
+                                \begin{split}
+                                    f_Y(1) &= \sum_{x \in S_1} f_{(X, Y)}(x, 1)
+                                    = f_Y(0, 1) + f_Y(1, 1) + f_Y(2, 1) \\
+                                    &= \frac{1}{6} + \frac{1}{9} + \frac{2}{9}
+                                    = \frac{9}{18} = \frac{1}{2}
+                                \end{split}
+                            \end{align*}
+                        \end{proof}
+
+                    \item
+                        \begin{behaupt}
+                            $X$ und $Y$ sind nicht stochastisch unabhängig.
+                        \end{behaupt}
+                        \begin{proof}
+                            Angenommen $X$ und $Y$ wären stochastisch
+                            unabhängig.
+                            Dann müsste nach Satz 3.4 für die Zähldichte
+                            $f_{(X, Y)}$ von $P^{(X, Y)}$ und die Zähldichten
+                            $f_X$ und $f_Y$ von $P^Y$ bzw. $P^Y$ gelten:
+                            \begin{equation*}
+                                f_{(X, Y)} (x, y) = f_X(x) \cdot f_Y(y)
+                                \text{ für alle } x \in S_1, y \in S_2
+                            \end{equation*}
+                            Da die Gleichung für alle $x, y$ gelten muss, so
+                            muss sie insbesondere auch für $x = y = 0$ gelten.
+                            \begin{equation*}
+                                f_{(X, Y)}(0, 0) = \frac{1}{4} = \frac{6}{24}
+                                \neq
+                                \frac{5}{24} = \frac{15}{36} \cdot \frac{1}{2}
+                                = f_X(0) \cdot f_Y(0)
+                            \end{equation*}
+                            Da schon diese Belegung von $x$ und $y$ die
+                            Gleichung nicht erfüllt, gilt diese erst recht nicht
+                            für alle $x, y$.
+                            Dies steht im Widerspruch zu obiger Annahme, $X$ und
+                            $Y$ wären stochastisch unabhängig.
+                            Daher sind $X$ und $Y$ nicht stochastisch
+                            unabhängig.
+                        \end{proof}
+                \end{enumerate}
+        \end{enumerate}
 
 \end{enumerate}
 
