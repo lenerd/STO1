@@ -1,0 +1,117 @@
+\documentclass[a4paper]{scrartcl}
+
+% font/encoding packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage[ngerman=ngerman-x-latest]{hyphsubst}
+
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{stmaryrd}
+\usepackage{marvosym}
+\allowdisplaybreaks
+\usepackage[output-decimal-marker={,}]{siunitx}
+\usepackage[shortlabels]{enumitem}
+\usepackage[section]{placeins}
+\usepackage{float}
+
+\newtheorem*{behaupt}{Behauptung}
+\newcommand{\gdw}{\Leftrightarrow}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Stochastik 1 - Gruppe 5 - Blatt 4}
+\rhead{Lennart Braun, Merlin Koglin, Kai Robin Sachse}
+\cfoot{\thepage}
+
+
+\title{Stochastik 1 für Informatiker}
+\subtitle{Blatt 4 Hausaufgaben (Gruppe 5)}
+\author{
+    Lennart Braun (6523742), \\
+    Merlin Koglin (6450362), \\
+    Kai Robin Sachse (6450486)
+}
+\date{zum 5. Mai 2015}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}[label=\bfseries\arabic*.]
+    \item
+        Gegeben sei ein Test mit 12 Fragen und je vier Antwortmöglichkeiten von denen
+        je genau eine richtig ist. Der Test wird bestanden (Ereignis A) bei mindestens
+        7 richtigen Antworten.
+        \begin{enumerate}[label=(\alph*)]
+            \item
+                \begin{behaupt}
+                    Ein ahnungsloser Student besteht den Test mit W. BLUBB
+                \end{behaupt}
+                \begin{proof}
+                    Wir betrachten den Grundraum $\Omega=\{0,1\}^12$ mit
+                    $\omega=(\omega_1,\ldots,\omega_12)$ wobei $\omega_i=1$ bedeutet die $i$-te
+                    Antwort war richtig und 0 wenn falsch. Die Wahrscheinlichkeit die richtige
+                    Antwort zu wählen liegt jeweils bei $p=0,25$. Da die Auswahlen der Antwort
+                    unabhängig voneinander sind und wir das selbe Ereignis 12mal durchführen,
+                    ist das GesamtWmaß die Binomialverteilung womit die Zähldichte gegeben ist durch
+                    \[f(k)=\binom{12}{k} \frac{1}{4^k}\left(\frac{3}{4}\right)^{12-k} = 
+                    \binom{12}{k} \frac{3^{12-k}}{4^{12}}= \frac{1}{4^{12}}\binom{12}{k} 3^{12-k}\]
+                    wobei $k$ die Anzahl der richtigen Antworten sei. Die gesuchte W. ergibt sich als
+                    Summe über die Anzahl der richtigen Antworten:
+                    \[P(A)=\sum_{k=7}^{12}f(k)=\sum_{k=7}^{12} \frac{1}{4^{12}}\binom{12}{k} 3^{12-k}=
+                     \frac{1}{4^{12}}\sum_{k=7}^{12}\binom{12}{k} 3^{12-k}\approx 0,0143\]
+                    
+                \end{proof}
+
+            \item
+                \begin{behaupt}
+                    Ein Student der je zwei falsche Antworten erkennt besteht mit W. BLUBB
+                \end{behaupt}
+                \begin{proof}
+                    Der Beweis verläuft analog zu $a)$ nur das nun $p=0,5$ gilt. Somit haben wir
+                    \[P(A)=\sum_{k=7}^{12}f(k)=\sum_{k=7}^{12} \frac{1}{2^{12}}\binom{12}{k} 1^{12-k}=
+                     \frac{1}{2^{12}}\sum_{k=7}^{12}\binom{12}{k} \approx 0,3872\]
+                \end{proof}
+
+        \end{enumerate}
+
+    \item	        
+        Seien $X:\Omega\rightarrow S_1,Y:\Omega\rightarrow S_2$ Zv. auf disk. Wraum $(\Omega,P)$
+        mit $S_1,S_2$ höchstens abz. und $f_{(X,Y)}(x,y)=P\{X=x,Y=y\}\; x\in S_1,y\in S_2$
+        Zähldichte von $(X,Y)$
+        \begin{enumerate}[label=(\alph*)]
+            \item
+                \begin{behaupt}
+                    Es gilt
+                    \begin{align*}
+                    f_X(x)=\sum_{y\in S_2} f_{(X,Y)}(x,y),\; x\in S_1\\
+                    f_Y(y)=\sum_{x\in S_1} f_{(X,Y)}(x,y),\; y\in S_2\\
+                    \end{align*}
+                \end{behaupt}
+                \begin{proof}
+                
+                \end{proof}
+                
+            \item
+                \begin{behaupt}
+                    Für $S_1=\{0,1,2\}$ und $S_2=\{0,1\}$ gilt $f_X(x)=$ BLUBB und $f_Y(y)=$ BLUBB
+                \end{behaupt}
+                \begin{proof}
+                    
+                \end{proof}
+                
+            \item
+                \begin{behaupt}
+                    $X,Y$ sind (nicht) stoch unabh.
+                \end{behaupt}
+                \begin{proof}
+                    
+                \end{proof}
+        \end{enumerate}
+
+                
+
+\end{enumerate}
+
+\end{document}
