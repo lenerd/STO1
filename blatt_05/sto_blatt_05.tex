@@ -41,38 +41,72 @@
 
 \begin{enumerate}[label=\bfseries\arabic*.]
     \item
-        Gegeben sei ein Test mit 12 Fragen und je vier Antwortmöglichkeiten von denen
-        je genau eine richtig ist. Der Test wird bestanden (Ereignis A) bei mindestens
-        7 richtigen Antworten.
+        Gegeben sei ein Test mit zwölf Fragen und je vier Antwortmöglichkeiten
+        von denen je genau eine richtig ist.
+        Der Test wird bestanden (Ereignis $A$) bei mindestens sieben richtigen
+        Antworten.
         \begin{enumerate}[label=(\alph*)]
             \item
                 \begin{behaupt}
-                    Ein ahnungsloser Student besteht den Test mit W. BLUBB
+                    Ein ahnungsloser Student besteht den Test mit einer
+                    Wahrscheinlichkeit von ca. \num{0.0143}.
                 \end{behaupt}
                 \begin{proof}
-                    Wir betrachten den Grundraum $\Omega=\{0,1\}^12$ mit
-                    $\omega=(\omega_1,\ldots,\omega_12)$ wobei $\omega_i=1$ bedeutet die $i$-te
-                    Antwort war richtig und 0 wenn falsch. Die Wahrscheinlichkeit die richtige
-                    Antwort zu wählen liegt jeweils bei $p=0,25$. Da die Auswahlen der Antwort
-                    unabhängig voneinander sind und wir das selbe Ereignis 12mal durchführen,
-                    ist das GesamtWmaß die Binomialverteilung womit die Zähldichte gegeben ist durch
-                    \[f(k)=\binom{12}{k} \frac{1}{4^k}\left(\frac{3}{4}\right)^{12-k} = 
-                    \binom{12}{k} \frac{3^{12-k}}{4^{12}}= \frac{1}{4^{12}}\binom{12}{k} 3^{12-k}\]
-                    wobei $k$ die Anzahl der richtigen Antworten sei. Die gesuchte W. ergibt sich als
-                    Summe über die Anzahl der richtigen Antworten:
-                    \[P(A)=\sum_{k=7}^{12}f(k)=\sum_{k=7}^{12} \frac{1}{4^{12}}\binom{12}{k} 3^{12-k}=
-                     \frac{1}{4^{12}}\sum_{k=7}^{12}\binom{12}{k} 3^{12-k}\approx 0,0143\]
-                    
+                    Wir betrachten den Grundraum $\Omega = \{ 0, 1 \}^{12}$ mit
+                    $\omega = (\omega_1, \ldots, \omega_{12})$ wobei
+                    $\omega_i = 1$ bedeutet, dass die $i$-te Antwort richtig
+                    war, und $\omega_i = 0$, dass sie falsch war.
+                    Die Wahrscheinlichkeit, die richtige Antwort zu wählen,
+                    liegt jeweils bei $p = \frac{1}{4}$.
+                    Da die Auswahlen der Antwort unabhängig voneinander sind und
+                    wir das selbe Zufallsexperiment $n = 12$ mal durchführen,
+                    ist das Gesamtwahrscheinlichkeitsmaß die Binomialverteilung
+                    $\mathcal{B}_{(12, \nicefrac{1}{4})}$.
+                    Für die Zähldichte gilt bei der Binomialverteilung
+                    $\mathcal{B}_{(n, p)}$ für $k$ erfolgreiche Antworten
+                    \begin{equation*}
+                        f_{\mathcal{B}_{(n, p)}}(k)
+                        = \binom{n}{k} \cdot p^k \cdot (1 - p)^{n-k}
+                        \text{ .}
+                    \end{equation*}
+                    Da der Test bei mindestens sieben richtigen Antworten als
+                    bestanden gilt, ergibt sich die gesuchte Wahrscheinlichkeit
+                    als Summe über alle Zähldichten von $7 \leq k \leq 12$.
+                    Für unser Experiment gilt also.
+                    \begin{equation*}
+                        \begin{split}
+                        P(A) &=
+                        \sum_{k = 7}^{12} f_{\mathcal{B}_{(12, \frac{1}{4})}}(k)
+                        = \sum_{k = 7}^{12} \binom{12}{k}
+                            \cdot \left( \frac{1}{4} \right)^k
+                            \cdot \left( \frac{3}{4} \right)^{12-k} \\
+                        &= \frac{1}{4^{12}} \cdot
+                            \sum_{k = 7}^{12} \binom{12}{k} \cdot 3^{12-k}
+                            \approx \num{0.0143}
+                        \end{split}
+                    \end{equation*}
                 \end{proof}
 
             \item
                 \begin{behaupt}
-                    Ein Student der je zwei falsche Antworten erkennt besteht mit W. BLUBB
+                    Ein Student der je zwei falsche Antworten erkennt besteht
+                    mit einer Wahrscheinlichkeit von ca. \num{0.3872}.
                 \end{behaupt}
                 \begin{proof}
-                    Der Beweis verläuft analog zu $a)$ nur das nun $p=0,5$ gilt. Somit haben wir
-                    \[P(A)=\sum_{k=7}^{12}f(k)=\sum_{k=7}^{12} \frac{1}{2^{12}}\binom{12}{k} 1^{12-k}=
-                     \frac{1}{2^{12}}\sum_{k=7}^{12}\binom{12}{k} \approx 0,3872\]
+                    Der Beweis verläuft analog zu $a)$ nur das nun
+                    $p = \frac{1}{2}$ gilt.
+                    Somit haben wir
+                    \begin{equation*}
+                        \begin{split}
+                        P(A) &=
+                        \sum_{k = 7}^{12} f_{\mathcal{B}_{(12, \frac{1}{2})}}(k)
+                        = \sum_{k = 7}^{12} \binom{12}{k}
+                            \cdot \left( \frac{1}{2} \right)^k
+                            \cdot \left( \frac{1}{2} \right)^{12-k} \\
+                        &= \frac{1}{2^{12}} \cdot \sum_{k = 7}^{12} \binom{12}{k}
+                        \approx \num{0,3872}
+                        \end{split}
+                    \end{equation*}
                 \end{proof}
 
         \end{enumerate}
