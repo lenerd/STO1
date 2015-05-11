@@ -114,20 +114,20 @@
     \item
         Seien $X \colon \Omega \to S_1, Y \colon \Omega \to S_2$
         Zufallsvariablen auf einem diskreten Wahrscheinlichkeitsraum
-        $(\Omega, P)$ un seien $S_1, S_2$ höchstens abzählbar.
+        $(\Omega, P)$ und seien $S_1, S_2$ höchstens abzählbar.
 
         Sei $f_{(X,Y)}(x,y) = P\{X = x, Y = y\}\; x \in S_1, y \in S_2$ die
         Zähldichte von $(X, Y)$.
         \begin{enumerate}[label=(\alph*)]
             \item
                 \begin{behaupt}
-                    Seien $f_X(x) = P\{X = x\}, x \in S_1$ und
-                    $f_Y(y) = P\{Y = Y\}, y \in S_2$ die Zähldichen von $X$ bzw.
-                    $Y$.
-                    Es gelten folgende Gleichungen:
+                    Die Zähldichten von $X$ bzw. $Y$ seien
+                    \[f_X(x) = P\{X = x\}, x \in S_1
+                    \text{ und } f_Y(y) = P\{Y = Y\}, y \in S_2\] 
+                    Dann gelten folgende Gleichungen:
                     \begin{align*}
                     f_X(x) = \sum_{y \in S_2} f_{(X,Y)}(x, y), \; x \in S_1 \\
-                    f_Y(y) = \sum_{x \in S_1} f_{(X,Y)}(x, y), \; y \in S_2 \\
+                    f_Y(y) = \sum_{x \in S_1} f_{(X,Y)}(x, y), \; y \in S_2
                     \end{align*}
                 \end{behaupt}
                 \begin{proof}
@@ -141,7 +141,7 @@
                                 \{ \omega \in \Omega \ |\ X(\omega) = x
                                 \land Y(\omega) = y \} \right) \\
                             &= \sum_{y \in S_2} P \{ \omega \in \Omega \ |\ 
-                                X(\omega) = x \land Y(\omega) = y \} \\
+                                X(\omega) = x \land Y(\omega) = y \} \\                                      
                             &= \sum_{y \in S_2} P \{ X = x \land Y = y \} \\
                             &= \sum_{y \in S_2} P \{ (X, Y) = (x, y) \} \\
                             &= \sum_{y \in S_2} P^{(X, Y)} \{ (x, y) \} \\
