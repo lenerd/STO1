@@ -1,0 +1,102 @@
+\documentclass[a4paper]{scrartcl}
+
+% font/encoding packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage[ngerman=ngerman-x-latest]{hyphsubst}
+
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{stmaryrd}
+\usepackage{marvosym}
+\allowdisplaybreaks
+\usepackage[output-decimal-marker={,}]{siunitx}
+\usepackage[shortlabels]{enumitem}
+\usepackage[section]{placeins}
+\usepackage{float}
+\usepackage{units}
+
+\newtheorem*{behaupt}{Behauptung}
+\newcommand{\gdw}{\Leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Stochastik 1 - Gruppe 5 - Blatt 6}
+\rhead{Lennart Braun, Merlin Koglin, Kai Robin Sachse}
+\cfoot{\thepage}
+
+
+\title{Stochastik 1 für Informatiker}
+\subtitle{Blatt 6 Hausaufgaben (Gruppe 5)}
+\author{
+    Lennart Braun (6523742), \\
+    Merlin Koglin (6450362), \\
+    Kai Robin Sachse (6450486)
+}
+\date{zum 19. Mai 2015}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}[label=\bfseries\arabic*.]
+    \item
+        Sei $X$ eine $\mathcal{B}_{\{n_1,p\}}$-vtlt Zv und $Y$ eine
+        $\mathcal{B}_{\{n_2,p\}}$-vtlt Zv. mit $n_1,n_2\in\N$ und
+        $p\in [0,1]$. Ferner seien $X,Y$ stochastisch unabhängig.
+        \begin{behaupt}
+        	$X+Y$ ist dann $\mathcal{B}_{\{n_1+n_2,p\}}$ verteilt.
+        \end{behaupt}
+        \begin{proof}
+            Hier ein heuristischer Beweis:$X$ beschreibt die $n_1$ malige unabh.
+            Ausführung eines Zufallsexperiment mit Erfolgswahrscheinlichkeit $p$.
+            Analog $Y$ für $n_2$ malige Ausführung. $X+Y$ beschreibt nun gerade
+            die $n_1+n_2$ malige Ausführung dieses Experiments. Damit ist die
+            Verteilung gegeben durch $\mathcal{B}_{\{n_1+n_2,p\}}$
+        \end{proof}
+        
+    \item
+    	\begin{behaupt}
+    		Bei einer Bestellung von $200$ Bauteilen sind $5$ Prozent defekt.
+    		Bei einer Stichprobe werden $4$ Bauteile entnommen und geprüft.
+    		Befindet sich unter diesen mindesten ein Defektes, so wird die
+    		Bestellung Reklamiert (Ereignis A). Die Verteilung der entnommenen
+    		defekten Bauteile ist gegeben durch:
+    		\[f(x)=\frac{ \binom{10}{k} \binom{190}{4-k} }{\binom{200}{4}}\]
+    		Die W. für eine Reklamation liegt bei $0,1868$
+    	\end{behaupt}
+    	\begin{proof}
+    		Wir betrachten die $200$ Bauteile als unsere Grundmenge, die defekten
+    		$200*0,05=10$ Bauteile als die markierten Bauteile und die $4$
+    		entnommenen als unsere zweite Ziehung. Somit sind die entnommenen
+    		defekten Bauteile gerade hypergeometrisch verteilt. Also gilt
+    		\[f_X(k)=\frac{\binom{10}{k}\binom{190}{4-k}}{\binom{200}{4}}\]
+    		Wobei die Zv. $X$ die Verteilung der entnommenen defekten Bauteile
+    		bezeichne.\\
+    		Die W. einer Reklamation ist nun
+    		\[P(A)=P\{X\ge 1\}=1-P\{X=0\}=f_X(0)=1-\frac{\binom{10}{0}
+    		\binom{190}{4-0}}{\binom{200}{4}}\approx 0,1868\]
+    	\end{proof}
+    	
+    \item
+    	\begin{behaupt}
+    		Eine zufällig ausgewählte Person hat mit W. 0,01 die Blutgruppe AB-.
+    		Die W. in einer Gruppe von 50 Menschen min eine Person mit dieser
+    		Blutgruppe zu haben (Ereignis A) beträgt $1-0,99^{50}\approx 0,3950$
+    	\end{behaupt}
+    	\begin{proof}
+    		Sei $X$ die Zv. die die Anzahl der AB- Menschen beschreibt. Dann
+    		gilt $P(A)=P\{X\ge 0\}=1-P\{X=0\}=1-0,99^{50}\approx 0,3950$\\
+    		Ab einer Menge von 69 Personen befindet sich mit einer W. von min
+    		0,5 eine Person mit AB- in der Menge\\
+    		Wir betrachten obige Zähldichte in Abhängigkeit von $k$:
+    		$f_X(k)=1-0,99^k=0,5$ die Tabelle (TODO?) zeigt, dass dies für
+    		$\frac{\log(2)}{\log(\frac{100}{99}}\approx 68,9$ erfüllt ist.
+    		Um min. 0,5 zuerreichen braucht es also eine Menge von 69 Personen
+    	\end{proof}
+        
+\end{enumerate}
+
+
+\end{document}
