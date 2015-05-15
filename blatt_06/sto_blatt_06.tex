@@ -80,22 +80,103 @@
     	\end{proof}
     	
     \item
-    	\begin{behaupt}
-    		Eine zufällig ausgewählte Person hat mit W. 0,01 die Blutgruppe AB-.
-    		Die W. in einer Gruppe von 50 Menschen min eine Person mit dieser
-    		Blutgruppe zu haben (Ereignis A) beträgt $1-0,99^{50}\approx 0,3950$
-    	\end{behaupt}
-    	\begin{proof}
-    		Sei $X$ die Zv. die die Anzahl der AB- Menschen beschreibt. Dann
-    		gilt $P(A)=P\{X\ge 0\}=1-P\{X=0\}=1-0,99^{50}\approx 0,3950$\\
-    		Ab einer Menge von 69 Personen befindet sich mit einer W. von min
-    		0,5 eine Person mit AB- in der Menge\\
-    		Wir betrachten obige Zähldichte in Abhängigkeit von $k$:
-    		$f_X(k)=1-0,99^k=0,5$ die Tabelle (TODO?) zeigt, dass dies für
-    		$\frac{\log(2)}{\log(\frac{100}{99}}\approx 68,9$ erfüllt ist.
-    		Um min. 0,5 zuerreichen braucht es also eine Menge von 69 Personen
-    	\end{proof}
-        
+        Eine zufällig ausgewählte Person hat mit einer Wahrscheinlichkeit von
+        ca. \SI{1}{\percent} die Blutgruppe AB mit negativem Rhesusfaktor (AB-).
+        \begin{enumerate}
+            \item
+                \begin{behaupt}
+                    Die Wahrscheinlichkeit in einer Gruppe von 50 zufällig
+                    ausgewählten Menschen mindestens eine Person mit dieser
+                    Blutgruppe zu haben (Ereignis $A$) beträgt exakt
+                    $1 - 0,99^{50} \approx 0,3950$.
+                \end{behaupt}
+                \begin{proof}
+                    Sei $X \sim \mathcal{B}_{(50,\ \num{0,01})}$ die
+                    Zufallsvariable, die die Anzahl der Menschen mit AB-
+                    beschreibt.
+                    Dann gilt
+                    \begin{equation*}
+                        \begin{split}
+                            P(A) &= P\{X \geq 1\} \\
+                            &= 1 - P\{X = 0\} \\
+                            &= 1 - \mathcal{B}_{(50,\ \num{0,01})} (\{0\}) \\
+                            &= 1 - \binom{50}{0} \cdot
+                               \num{0,01}^0 \cdot (1 - \num{0,01})^{50 - 0} \\
+                            &= 1 - \num{0,99}^{50} \\
+                            &\approx \num{0.3950}
+                        \end{split}
+                    \end{equation*}
+                    Da $n \geq 50$ und $p \leq \num{0,05}$, kann $X$ durch die
+                    Poisson-Verteilung mit $\lambda = n \cdot p = \num{0,5}$
+                    approximiert werden.
+                    \begin{equation*}
+                        \begin{split}
+                            P(A) &= P\{X \geq 1\} \\
+                            &= 1 - P\{X = 0\} \\
+                            &\approx 1 - \mathcal{P}_{\num{0,5}} (\{0\}) \\
+                            &= 1 - e^{-\num{0,5}} \cdot \frac{\num{0,5}^0}{0!} \\
+                            &= 1 - e^{-\num{0,5}} \\
+                            &\approx \num{0.3935}
+                        \end{split}
+                    \end{equation*}
+                \end{proof}
+
+            \item
+                \begin{behaupt}
+                    Ab einer Menge von $69$ zufällig gewählten Personen
+                    befindet sich mit einer Wahrscheinlichkeit von mindestens
+                    \SI{50}{\percent} mindestens eine Person mit AB- in dieser
+                    Menge (Ereignis $A$).
+                \end{behaupt}
+                \begin{proof}
+                    Sei $n$ die Anzahl der Personen, ab der die Wahrscheinlichkeit
+                    über \SI{50}{\percent} liegt.
+                    $n$ muss die kleinste Ganzzahl sein, welche die folgende
+                    Ungleichung erfüllt.
+                    \begin{equation*}
+                        \begin{aligned}
+                            && P(A) &\geq \num{0,5} \\
+                            \gdw && P\{X \geq 1\} &\geq \num{0,5} \\
+                            \gdw && 1 - P\{X = 0\} &\geq \num{0,5} \\
+                            \gdw && P\{X = 0\} &\leq \num{0,5} \\
+                            \gdw && \mathcal{B}_{(n,\ \num{0.01})}\{0\}
+                                    &\leq \num{0,5} \\
+                            \gdw && \binom{n}{0} \cdot \num{0,01}^0 \cdot
+                                    (1 - \num{0,01})^{n - 0} &\leq \num{0,5} \\
+                            \gdw && \num{0,99}^n &\leq \num{0,5} \\
+                            \gdw && n \cdot \ln \num{0,99}
+                                    &\leq \ln \num{0,5} \\
+                            \gdw && n &\geq \frac{\ln \num{0,5}}{\ln \num{0,99}}
+                                    \\
+                            \gdw && n &\gtrapprox \num{68.9676}
+                        \end{aligned}
+                    \end{equation*}
+                    Es ist also $n = \lceil \num{68,9676} \rceil = 69$.
+
+                    Über die Approximierung durch die Poisson-Verteilung
+                    $\mathcal{P}_{\num{0,5} \cdot n}$ kommt man zu einem
+                    ähnlichen Ergebnis:
+                    \begin{equation*}
+                        \begin{aligned}
+                            && P(A) \approx
+                                    1 - \mathcal{P}_{\num{0.01} \cdot n}\{0\}
+                                    &\geq \num{0,5} \\
+                            \gdw && \mathcal{P}_{\num{0.01} \cdot n}\{0\}
+                                    &\leq \num{0,5} \\
+                            \gdw && e^{\num{-0.01} \cdot n} \cdot
+                                    \frac{(\num{0,01} \cdot n)^0}{0!}
+                                    &\leq \num{0,5} \\
+                            \gdw && e^{\num{-0.01} \cdot n} &\leq \num{0,5} \\
+                            \gdw && \num{-0.01} \cdot n &\leq \ln \num{0,5} \\
+                            \gdw && n &\geq \frac{\ln \num{0,5}}{\num{-0,01}}
+                                    \\
+                            \gdw && n &\gtrapprox \num{69.3147}
+                        \end{aligned}
+                    \end{equation*}
+                \end{proof}
+
+        \end{enumerate}
+
 \end{enumerate}
 
 
