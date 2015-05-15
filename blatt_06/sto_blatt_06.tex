@@ -82,27 +82,47 @@
         \end{proof}
         
     \item
+        Bei einer Bestellung von $200$ Bauteilen sind \SI{5}{\percent} defekt.
+        Bei einer Stichprobe werden $4$ Bauteile entnommen und geprüft.
+        Befindet sich unter diesen mindestens ein defektes, so wird die
+        Bestellung reklamiert.
+
     	\begin{behaupt}
-    		Bei einer Bestellung von $200$ Bauteilen sind $5$ Prozent defekt.
-    		Bei einer Stichprobe werden $4$ Bauteile entnommen und geprüft.
-    		Befindet sich unter diesen mindesten ein Defektes, so wird die
-    		Bestellung Reklamiert (Ereignis A). Die Verteilung der entnommenen
-    		defekten Bauteile ist gegeben durch:
-    		\[f(x)=\frac{ \binom{10}{k} \binom{190}{4-k} }{\binom{200}{4}}\]
-    		Die W. für eine Reklamation liegt bei $0,1868$
+            Die Zufallsvariable $X$ beschreibe die Anzahl defekter Bauteile
+            unter den entnommenen.
+            Die Verteilung von $X$ ist folgende hypergeometrische Verteilung.
+            \begin{equation*}
+                X \sim \mathcal{H}_{(200, 10, 4)}
+            \end{equation*}
+            Die Wahrscheinlichkeit für eine Reklamation (Ereignis $A$) liegt bei
+            ca. $\num{0,1868}$.
     	\end{behaupt}
-    	\begin{proof}
-    		Wir betrachten die $200$ Bauteile als unsere Grundmenge, die defekten
-    		$200*0,05=10$ Bauteile als die markierten Bauteile und die $4$
-    		entnommenen als unsere zweite Ziehung. Somit sind die entnommenen
-    		defekten Bauteile gerade hypergeometrisch verteilt. Also gilt
-    		\[f_X(k)=\frac{\binom{10}{k}\binom{190}{4-k}}{\binom{200}{4}}\]
-    		Wobei die Zv. $X$ die Verteilung der entnommenen defekten Bauteile
-    		bezeichne.\\
-    		Die W. einer Reklamation ist nun
-    		\[P(A)=P\{X\ge 1\}=1-P\{X=0\}=f_X(0)=1-\frac{\binom{10}{0}
-    		\binom{190}{4-0}}{\binom{200}{4}}\approx 0,1868\]
-    	\end{proof}
+        \begin{proof}
+            Wir betrachten die Grundmenge von $N = 200$ Bauteilen.
+            Im Mittel sind $M = \num{0.05} \cdot N = 10$ Teile defekt, dies sind
+            unsere markierten Bauteile und es werden $n = 4$ ohne Zurücklegen
+            entnommen.
+            Dieses Schema entspricht der hypergeometrischen Verteilung mit
+            den gegebenen Parametern.
+            \begin{equation*}
+                X \sim (\mathcal{H}_{(N, M, n)} = \mathcal{H}_{(200, 10, 4)})
+            \end{equation*}
+            \begin{equation*}
+                \begin{split}
+                    P(A) &= P\{X \geq 1\} \\
+                    &= 1 - P\{X = 0\} \\
+                    &= 1 - \mathcal{H}_{(200, 10, 4)}\{0\} \\
+                    &= 1 - \frac{\binom{10}{0} \cdot \binom{200 - 10}{4 - 0}}
+                                {\binom{200}{4}} \\
+                    &= 1 - \frac{\binom{190}{4}}{\binom{200}{4}} \\
+                    &= 1 - \frac{190 \cdot \ldots \cdot 187}
+                                {200 \cdot \ldots \cdot 197} \\
+                    &\approx \num{0.1868}
+                \end{split}
+            \end{equation*}
+            Mit einer Wahrscheinlichkeit von ca. \num{0,1868} wird die
+            Bestellung reklamiert.
+        \end{proof}
     	
     \item
         Eine zufällig ausgewählte Person hat mit einer Wahrscheinlichkeit von
