@@ -42,18 +42,43 @@
 
 \begin{enumerate}[label=\bfseries\arabic*.]
     \item
-        Sei $X$ eine $\mathcal{B}_{\{n_1,p\}}$-vtlt Zv und $Y$ eine
-        $\mathcal{B}_{\{n_2,p\}}$-vtlt Zv. mit $n_1,n_2\in\N$ und
-        $p\in [0,1]$. Ferner seien $X,Y$ stochastisch unabhängig.
+        Seien $X$ eine $\mathcal{B}_{(n_1, p)}$-verteilte Zufallsvariable und
+        $Y$ eine $\mathcal{B}_{(n_2, p)}$-verteilte Zufallsvariable mit
+        $n_1, n_2 \in \mathbb{N}$ und $p \in [0,1]$.
+        Ferner seien $X, Y$ stochastisch unabhängig.
         \begin{behaupt}
-        	$X+Y$ ist dann $\mathcal{B}_{\{n_1+n_2,p\}}$ verteilt.
+        	$X+Y$ ist $\mathcal{B}_{(n_1 + n_2, p)}$ verteilt.
         \end{behaupt}
         \begin{proof}
-            Hier ein heuristischer Beweis:$X$ beschreibt die $n_1$ malige unabh.
-            Ausführung eines Zufallsexperiment mit Erfolgswahrscheinlichkeit $p$.
-            Analog $Y$ für $n_2$ malige Ausführung. $X+Y$ beschreibt nun gerade
-            die $n_1+n_2$ malige Ausführung dieses Experiments. Damit ist die
-            Verteilung gegeben durch $\mathcal{B}_{\{n_1+n_2,p\}}$
+            Hier ein heuristischer Beweis: $X$ beschreibt die $n_1$-malige
+            unabhängige Ausführung eines Zufallsexperiment mit der
+            Erfolgswahrscheinlichkeit $p$.
+            Analog beschreibt $Y$ die $n_2$-malige Ausführung.
+            $X+Y$ beschreibt nun gerade die $n_1 + n_2$-malige Ausführung dieses
+            Experiments.
+            Damit ist die Verteilung gegeben durch
+            $\mathcal{B}_{(n_1 + n_2, p)}$
+
+            Eine weitere Möglichkeit ist der Beweis über Satz 3.9.
+            \begin{equation*}
+                \begin{split}
+                    P^{X+Y}\{k\}
+                    &= (P^X \ast P^Y) \{k\} \\
+                    &= (\mathcal{B}_{(n_1, p)} \ast \mathcal{B}_{(n_2, p)})
+                       \{k\} \\
+                    &= (f_X \ast f_Y)(k) \\
+                    &= \sum_{i=0}^k f_X(i) \cdot f_Y(k-i) \\
+                    &= \sum_{i=0}^k \binom{n_1}{i} \cdot p^i \cdot (1-p)^{n_1-i}
+                      \cdot \binom{n_2}{k-i} \cdot p^{k-i} \cdot (1-p)^{n_2-k+i}
+                      \\
+                    &= p^k \cdot (1-p)^{n_1 + n_2 - k} \cdot
+                         \sum_{i=1}^k \binom{n_1}{i} \cdot \binom{n_2}{k-i} \\
+                    &= \binom{n_1 + n_2}{k} \cdot p^k \cdot
+                       (1-p)^{n_1 + n_2 - k} \\
+                    &= \mathcal{B}_{(n_1 + n_2, p)}(\{k\})
+                    \qedhere
+                \end{split}
+            \end{equation*}
         \end{proof}
         
     \item
