@@ -49,13 +49,43 @@
         \begin{behaupt}
             Für alle $s \in \mathbb{N}_0$ und alle $k \in \{0, \ldots, s\}$ gilt
             \begin{equation*}
-                P \left( X = k \ |\ X + Y = s \right) = \binom{s}{k} \cdot
+                P(X = k \ |\ X + Y = s) = \binom{s}{k} \cdot
                 \left( \frac{\lambda_1}{\lambda_1 + \lambda_2} \right)^k \cdot
                 \left( 1 - \frac{\lambda_1}{\lambda_1 + \lambda_2} \right)^{s-k}
             \end{equation*}
         \end{behaupt}
         \begin{proof}
-            TODO
+            \begin{equation*}
+                \begin{split}
+                    P(X = k \ |\ X + Y = s)
+                    &= \frac{P(\{X = k\} \cap \{X + Y = s\})}{P(\{X + Y = s\})}
+                    \\
+                    &= \frac{P\{X = k \land Y = s - k\}}{P\{X + Y = s\}} \\
+                    &= \frac{P\{X = k\} \cdot P\{Y = s - k\}}{P\{X + Y = s\}}
+                    \qquad \text{(da $X$ und $Y$ st. unabh.)} \\
+                    &= \frac{f_{\lambda_1}(k) \cdot f_{\lambda_2}(s - k)}
+                            {f_{\lambda_1 + \lambda_2}(s)} \\
+                    &= \frac{e^{-\lambda_1} \cdot \frac{\lambda_1^k}{k!} \cdot
+                        e^{-\lambda_2} \cdot \frac{\lambda_2^{s-k}}{(s-k)!}}
+                        {e^{-(\lambda_1 + \lambda_2)} \cdot
+                        \frac{(\lambda_1 + \lambda_2)^{s}}{s!}} \\
+                    &= \frac{s!}{k! \cdot (s-k)!} \cdot
+                        \frac{\lambda_1^k \cdot \lambda_2^{s-k}}
+                        {(\lambda_1 + \lambda_2)^s} \\
+                    &= \binom{s}{k} \cdot
+                        \frac{\lambda_1^k}{(\lambda_1 + \lambda_2)^k} \cdot
+                        \frac{\lambda_2^{s-k}}{(\lambda_1 + \lambda_2)^{s-k}} \\
+                    &= \binom{s}{k} \cdot
+                        \left( \frac{\lambda_1}{\lambda_1 + \lambda_2} \right)^k
+                        \cdot
+                        \left(\frac{\lambda_2}{\lambda_1+\lambda_2}\right)^{s-k}
+                        \\
+                    &= \binom{s}{k} \cdot
+                        \left( \frac{\lambda_1}{\lambda_1 + \lambda_2} \right)^k
+                        \cdot \left(1 - \frac{\lambda_1}{\lambda_1 + \lambda_2}
+                        \right)^{s-k}
+                \end{split}
+            \end{equation*}
         \end{proof}
 
     \item
