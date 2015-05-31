@@ -1,0 +1,87 @@
+\documentclass[a4paper]{scrartcl}
+
+% font/encoding packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage[ngerman=ngerman-x-latest]{hyphsubst}
+
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{stmaryrd}
+\usepackage{marvosym}
+\allowdisplaybreaks
+\usepackage[output-decimal-marker={,}]{siunitx}
+\usepackage[shortlabels]{enumitem}
+\usepackage[section]{placeins}
+\usepackage{float}
+\usepackage{units}
+
+\newtheorem*{behaupt}{Behauptung}
+\newcommand{\gdw}{\Leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Stochastik 1 - Gruppe 5 - Blatt 7}
+\rhead{Lennart Braun, Merlin Koglin, Kai Robin Sachse}
+\cfoot{\thepage}
+
+
+\title{Stochastik 1 für Informatiker}
+\subtitle{Blatt 7 Hausaufgaben (Gruppe 5)}
+\author{
+    Lennart Braun (6523742), \\
+    Merlin Koglin (6450362), \\
+    Kai Robin Sachse (6450486)
+}
+\date{zum 9. Juni 2015}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}[label=\bfseries\arabic*.]
+    \item
+
+    \item
+        Es sei $X \sim \mathcal{H}_{(N, M, n)}$ eine Zufallsvariable auf einem
+        diskreten Wahrscheinlichkeitsraum $(\Omega, P)$.
+        \begin{behaupt}
+            Es gilt
+            \begin{equation*}
+                E(X) = n \cdot \frac{M}{N}
+            \end{equation*}
+        \end{behaupt}
+        \begin{proof}
+            \begin{equation*}
+                \begin{split}
+                    E(X)
+                    &= \sum_{m=0}^n m \cdot \mathcal{H}_{(N, M, n)} (\{m\}) \\
+                    &= \sum_{m=0}^n m \cdot
+                        \frac{\binom{M}{m} \cdot \binom{N-M}{n-m}}
+                             {\binom{N}{n}} \\
+                    &= \sum_{m=1}^n m \cdot
+                        \frac{\binom{M}{m} \cdot \binom{N-M}{n-m}}
+                             {\binom{N}{n}} \\
+                    &= \sum_{m=1}^n m \cdot
+                        \frac{\frac{M}{m} \cdot \binom{M-1}{m-1} \cdot
+                        \binom{N-M}{n-m}}{\frac{N}{n} \cdot \binom{N-1}{n-1}} \\
+                    &= n \cdot \frac{M}{N} \cdot \sum_{m=1}^n
+                        \frac{\binom{M-1}{m-1} \cdot
+                        \binom{N-M}{n-m}}{\binom{N-1}{n-1}} \\
+                    &= n \cdot \frac{M}{N} \cdot \sum_{m=0}^{n-1}
+                        \frac{\binom{M-1}{m} \cdot
+                        \binom{N-M}{(n-1) -m}}{\binom{N-1}{n-1}} \\
+                    &= n \cdot \frac{M}{N} \cdot \underbrace{\sum_{m=0}^{n-1}
+                        \mathcal{H}_{(N-1, M-1, n-1)}(\{m\})}_{= 1} \\
+                    &= n \cdot \frac{M}{N}
+                \end{split}
+            \end{equation*}
+        \end{proof}
+
+    \item
+
+\end{enumerate}
+
+
+\end{document}
