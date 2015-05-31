@@ -100,7 +100,17 @@
                     \end{equation*}
                 \end{behaupt}
                 \begin{proof}
-                    TODO
+                    \begin{equation*}
+                        \begin{split}
+                            E(X)
+                            &= \sum_{x \in X(\Omega)} x \cdot P\{X = x\} \\
+                            &= \sum_{l = 0}^\infty l \cdot P\{X = l\} \\
+                            &= \sum_{l = 1}^\infty l \cdot P\{X = l\} \\
+                            &= \sum_{l = 1}^\infty \sum_{k = 1}^l P\{X = l\} \\
+                            &= \sum_{k=1}^\infty \sum_{l=k}^\infty P\{X = l\} \\
+                            &= \sum_{k=1}^\infty P\{X \geq k\} \\
+                        \end{split}
+                    \end{equation*}
                 \end{proof}
 
             \item
