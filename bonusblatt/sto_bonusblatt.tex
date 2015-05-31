@@ -119,12 +119,41 @@
                 \begin{behaupt}
                     Es gilt
                     \begin{equation*}
-                        E(X) = TODO
+                        E(X) = \frac{1 - p}{p}
                         \text{ .}
                     \end{equation*}
                 \end{behaupt}
                 \begin{proof}
-                    TODO
+                    Zunächst wird gezeigt, dass $P\{X \geq k\} = (1 - p)^k$
+                    gilt.
+                    \begin{equation*}
+                        \begin{split}
+                            P\{X \geq k\}
+                            &= \sum_{l=k}^\infty (1 - p)^l \cdot p \\
+                            &= p \cdot \sum_{l=k}^\infty (1 - p)^l \\
+                            &= p \cdot \left( \sum_{l=0}^\infty (1 - p)^l
+                                - \sum_{l=0}^{k-1} (1 - p)^l \right) \\
+                            &= p \cdot \left( \frac{1}{1 - (1 -p)}
+                                - \frac{1 - (1 - p)^k}{1 - (1 - p)} \right) \\
+                            &= p \cdot \left( \frac{1 - 1 + (1 - p)^k}
+                                {p} \right) \\
+                            &= (1 - p)^k
+                        \end{split}
+                    \end{equation*}
+                    Mit dieser Aussage und der in Aufgabenteil (a) bewiesenen
+                    lässt sich der Erwartungswert $E(X)$ berechnen.
+                    \begin{equation*}
+                        \begin{split}
+                            E(X)
+                            &= \sum_{k=1}^\infty P\{X \geq k\} \\
+                            &= \sum_{k=1}^\infty (1 - p)^k \\
+                            &= \sum_{k=0}^\infty \left( (1 - p)^k \right)
+                                - (1 - p)^0 \\
+                            &= \frac{1}{1 - (1 - p)} - 1 \\
+                            &= \frac{1}{p} - 1 \\
+                            &= \frac{1 - p}{p}
+                        \end{split}
+                    \end{equation*}
                 \end{proof}
 
         \end{enumerate}
