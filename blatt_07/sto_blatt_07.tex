@@ -47,10 +47,42 @@
         eins von 8 Stockwerken aus.
         \begin{behaupt}
             Die erwartete Anahl von Stockwerken, bei denen mindestens eine der
-            Personen aussteigt beträgt $?$.
+            Personen aussteigt beträgt ca. \num{4,410}.
         \end{behaupt}
         \begin{proof}
-            TODO
+            Wir betrachten den Wahrscheinlichkeitsraum $(\Omega, P)$ mit dem
+            Laplace-Maß $P$ und
+            \begin{equation*}
+                \Omega = \Big\{ (\omega_1, \ldots, \omega_6)
+                                \in \{1, \ldots, 8\} \Big\}
+                \text{ .}
+            \end{equation*}
+            Für $\omega \in \Omega$ bedeutet $\omega_i = k$, dass Person $i$ im
+            Stockwerk $k$ aussteigt.
+            Im Folgenden gelte $k \in \{1, \ldots, 8\}$.
+            Sei $A_k$ das Ereigniss, dass mindestens eine Person im Stockwerk
+            $k$ aussteigt.
+            Die Wahrscheinlichkeit $P(A_k)$ lässt sich einfach über das
+            Komplement $A_k^C$, dem Ereignis, dass keine Person im Stockwerk $k$
+            aussteigt, berechnen.
+            Diese beträgt offensichtlich $P(A_k^C) = \left(\frac{7}{8}\right)^6$
+            Damit gilt $P(A_k) = 1 - \left( \frac{7}{8} \right)^6$.
+            Wir führen nun die Indikatorvariablen $X_k \in \{0, 1\}$ ein welche
+            mit der Wahrscheinlichkeit $P(A_k)$ den Wert $1$ annimmt.
+            Sei $X$ die Summe über alle $X_k$, welche angibt, in wie vielen
+            verschiedenen Stockwerken Personen aussteigen.
+            Wir bestimmen nun den Erwartungswert von $X$.
+            \begin{equation*}
+                \begin{split}
+                    E(X) &= E \left( \sum_{k = 1}^8 X_k \right) \\
+                         &= \sum_{k = 1}^8 E(X_k) \\
+                         &= \sum_{k = 1}^8 0 \cdot P(A_k^C) + 1 \cdot P(A_k) \\
+                         &= \sum_{k = 1}^8 1 - \left( \frac{7}{8} \right)^6 \\
+                         &= 8 \cdot
+                            \left( 1 - \left( \frac{7}{8} \right)^6 \right) \\
+                         &\approx \num{4,410}
+                \end{split}
+            \end{equation*}
         \end{proof}
 
     \item
