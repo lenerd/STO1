@@ -8,6 +8,7 @@
 \usepackage[ngerman=ngerman-x-latest]{hyphsubst}
 
 \usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{array}
 \usepackage{stmaryrd}
 \usepackage{marvosym}
 \allowdisplaybreaks
@@ -80,6 +81,90 @@
         \end{proof}
 
     \item
+        Die Zufallsvariable $X\colon \Omega \to \{0, 1, 2, 3\}$ aus einem
+        diskreten Wahrscheinlichkeitsraum $(\Omega, P)$ gibt die Anzahl der Tore
+        an, die ein Stürmer schießt.
+        Im Erwartungswert schießt der Stürmer ein Tor pro Spiel.
+        Die Wahrscheinlichkeit ein Tor zu schießen ist dreimal so groß wie die,
+        zwei Tore zu schießen.
+        Die Wahrscheinlichkeit kein Tor zu schießen ist 15-mal so groß wie die,
+        drei Tore zu schießen.
+        \begin{behaupt}
+            Für die Wahrscheinlichkeiten $p_i = P\{X = i\}$ für
+            $i \in \{0, 1, 2, 3\}$ gilt folgendes.
+            \begin{align*}
+                \begin{split}
+                    p_0 &= \frac{15}{68} \qquad
+                    p_1 = \frac{39}{68} \\
+                    p_2 &= \frac{13}{68} \qquad
+                    p_3 = \frac{1}{68}
+                \end{split}
+            \end{align*}
+        \end{behaupt}
+        \begin{proof}
+            Aus den gegebenen Informationen können ein Gleichungssystem
+            aufstellen.
+            Die erste Gleichung muss gelten, da die Summe der
+            Wahrscheinlichkeiten aller Ereignisse 1 ergibt.
+            Die zweite Gleichung ergibt sich aus der Definition des
+            Erwartungswertes: $E(X) = \sum_{x \in X(\Omega)} x \cdot P\{X =x\}$.
+            Die restlichen zwei Gleichungen sind die bekannten Verhältnisse der
+            Wahrscheinlichkeiten $p_1$ und $p_2$ bzw. $p_0$ und $p_3$.
+            \begin{equation*}
+                \begin{array}{crcrcrcr @{{}={}} r}
+                      & p_0 & + & p_1 & + &  p_2 & + &   p_3 & 1 \\
+                      &     & + & p_1 & + & 2p_2 & + &  3p_3 & 1 \\
+                      &     & - & p_1 & + & 3p_2 &   &       & 0 \\
+                    - & p_0 &   &     &   &      & + & 15p_3 & 0 \\
+                \end{array}
+            \end{equation*}
+            Wir lösen das Gleichungssystem mit dem Gauss-Algorithmus.
+            \begin{equation*}
+                \begin{array}{crcrcrcr @{{}={}} r}
+                      & p_0 & + & p_1 & + &  p_2 & + &   p_3 & 1 \\
+                      &     & + & p_1 & + & 2p_2 & + &  3p_3 & 1 \\
+                      &     & - & p_1 & + & 3p_2 &   &       & 0 \\
+                      &     & + & p_1 & + &  p_2 & + & 16p_3 & 1 \\
+                \end{array}
+            \end{equation*}
+            \begin{equation*}
+                \begin{array}{crcrcrcr @{{}={}} r}
+                      & p_0 &&     & - &  p_2 & - &  2p_3 & 0 \\
+                      &     && p_1 & + & 2p_2 & + &  3p_3 & 1 \\
+                      &     &&     &   & 5p_2 & + &  3p_3 & 1 \\
+                      &     &&     & - &  p_2 & + & 13p_3 & 0 \\
+                \end{array}
+            \end{equation*}
+            \begin{equation*}
+                \setlength{\extrarowheight}{3pt}
+                \begin{array}{crcrcrcr @{{}={}} r}
+                    & p_0 &&     &&      & - &  \frac{7}{5}p_3 & \frac{1}{5} \\
+                    &     && p_1 &&      & + &  \frac{9}{5}p_3 & \frac{3}{5} \\
+                    &     &&     &&  p_2 & + &  \frac{3}{5}p_3 & \frac{1}{5} \\
+                    &     &&     &&      &   & \frac{68}{5}p_3 & \frac{1}{5} \\
+                \end{array}
+            \end{equation*}
+            \begin{equation*}
+                \setlength{\extrarowheight}{3pt}
+                \begin{array}{crcrcrcr @{{}={}} r}
+                    & p_0 &&     &&      &&     & \frac{15}{68} \\
+                    &     && p_1 &&      &&     & \frac{39}{68} \\
+                    &     &&     &&  p_2 &&     & \frac{13}{68} \\
+                    &     &&     &&      && p_3 &  \frac{1}{68} \\
+                \end{array}
+            \end{equation*}
+            Es ist leicht zu sehen, dass die Verhältnisse zwischen $p_1$ und
+            $p_2$ bzw. $p_0$ und $p_3$ stimmen und die Summe aller
+            Wahrscheinlichkeiten 1 ergibt.
+            Der Erwartungswert stimmt ebenfalls mit dem geforderten überein:
+            \begin{equation*}
+                E(X)
+                = 0 \cdot \frac{15}{68} + 1 \cdot \frac{39}{68}
+                + 2 \cdot \frac{13}{68} + 3 \cdot \frac{1}{68}
+                = \frac{39 + 26 + 3}{68} = \frac{68}{68} = 1
+                \qedhere
+            \end{equation*}
+        \end{proof}
 
 \end{enumerate}
 
