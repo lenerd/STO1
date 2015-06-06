@@ -57,8 +57,8 @@
                                 \in \{1, \ldots, 8\} \Big\}
                 \text{ .}
             \end{equation*}
-            Für $\omega \in \Omega$ bedeutet $\omega_i = k$, dass Person $i$ im
-            Stockwerk $k$ aussteigt.
+            Für $\omega \in \Omega$ bedeutet $\omega_i = k$, dass die $i$-te Person
+            im Stockwerk $k$ aussteigt.
             Im Folgenden gelte $k \in \{1, \ldots, 8\}$.
             Sei $A_k$ das Ereigniss, dass mindestens eine Person im Stockwerk
             $k$ aussteigt.
@@ -67,7 +67,7 @@
             aussteigt, berechnen.
             Diese beträgt offensichtlich $P(A_k^C) = \left(\frac{7}{8}\right)^6$
             Damit gilt $P(A_k) = 1 - \left( \frac{7}{8} \right)^6$.
-            Wir führen nun die Indikatorvariablen $X_k \in \{0, 1\}$ ein welche
+            Wir führen nun die Indikatorvariablen $X_k \in \{0, 1\}$ ein, welche
             mit der Wahrscheinlichkeit $P(A_k)$ den Wert $1$ annimmt.
             Sei $X$ die Summe über alle $X_k$, welche angibt, in wie vielen
             verschiedenen Stockwerken Personen aussteigen.
@@ -77,10 +77,10 @@
                     E(X) &= E \left( \sum_{k = 1}^8 X_k \right) \\
                          &= \sum_{k = 1}^8 E(X_k) \\
                          &= \sum_{k = 1}^8 0 \cdot P(A_k^C) + 1 \cdot P(A_k) \\
-                         &= \sum_{k = 1}^8 1 - \left( \frac{7}{8} \right)^6 \\
-                         &= 8 \cdot
-                            \left( 1 - \left( \frac{7}{8} \right)^6 \right) \\
-                         &\approx \num{4,410}
+                         &= \sum_{k = 1}^8 1 - \left( \frac{7}{8} \right)^6  
+                         = 8 \cdot
+                            \left( 1 - \left( \frac{7}{8} \right)^6 \right)  
+                         \approx \num{4,410}
                 \end{split}
             \end{equation*}
         \end{proof}
@@ -143,8 +143,8 @@
             \end{align*}
         \end{behaupt}
         \begin{proof}
-            Aus den gegebenen Informationen können ein Gleichungssystem
-            aufstellen.
+            Aus den gegebenen Informationen können wir ein
+            Gleichungssystem aufstellen.
             Die erste Gleichung muss gelten, da die Summe der
             Wahrscheinlichkeiten aller Ereignisse 1 ergibt.
             Die zweite Gleichung ergibt sich aus der Definition des
@@ -159,7 +159,7 @@
                     - & p_0 &   &     &   &      & + & 15p_3 & 0 \\
                 \end{array}
             \end{equation*}
-            Wir lösen das Gleichungssystem mit dem Gauss-Algorithmus.
+            Wir lösen das Gleichungssystem mit dem Gauß-Algorithmus.
             \begin{equation*}
                 \begin{array}{crcrcrcr @{{}={}} r}
                       & p_0 & + & p_1 & + &  p_2 & + &   p_3 & 1 \\
