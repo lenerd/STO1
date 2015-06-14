@@ -24,6 +24,7 @@
 \newcommand{\cov}{\operatorname{Cov}}
 \newcommand{\e}{\operatorname{E}}
 \newcommand{\var}{\operatorname{Var}}
+\newcommand{\corr}{\operatorname{Corr}}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -97,7 +98,22 @@
                     \end{equation*}
                 \end{behaupt}
                 \begin{proof}
-                    TODO
+                    \begin{equation*}
+                        \begin{split}
+                            \cov(X, aY + bZ)
+                            &= \e(X \cdot (aY + bZ)) - E(X) \cdot E(aY + bZ) \\
+                            &= \e(aXY + bXZ) - E(X) \cdot E(aY + bZ) \\
+                            &= \e(aXY) + \e(bXZ) - E(X)
+                               \cdot (E(aY) + \e(bZ)) \\
+                            &= \e(aXY) + \e(bXZ) - E(X)
+                               \cdot E(aY) - \e(X) \cdot \e(bZ) \\
+                            &= a\e(XY) + b\e(XZ) - E(X)
+                               \cdot aE(Y) - \e(X) \cdot b\e(Z) \\
+                            &= a \cdot (\e(XY) - \e(X) \cdot \e(Y))
+                               + b \cdot (\e(XZ) - E(X) \cdot \e(Z)) \\
+                            &= a \cdot \cov(X, Y) + b \cdot \cov(X, Z)
+                        \end{split}
+                    \end{equation*}
                 \end{proof}
 
             \item
@@ -118,7 +134,34 @@
                     \end{equation*}
                 \end{behaupt}
                 \begin{proof}
-                    TODO
+                    Sei $b > 0$.
+                    \begin{equation*}
+                        \begin{split}
+                            \corr(X,Y)
+                            &= \corr(X, a + b \cdot X) \\
+                            &= \frac{\cov(X, a + b \cdot X)}
+                            {\sqrt{\var(X) \cdot \var(a + b \cdot X)}} \\
+                            &= \frac{b \cdot \cov(X, X)}
+                            {\sqrt{\var(X) \cdot \var(X) \cdot b^2}} \\
+                            &= \frac{b \cdot \var(X)}
+                            {\var(X) \cdot b} = 1
+                        \end{split}
+                    \end{equation*}
+                    Sei $b < 0$.
+                    \begin{equation*}
+                        \begin{split}
+                            \corr(X,Y)
+                            &= \corr(X, a + b \cdot X) \\
+                            &= \frac{\cov(X, a + b \cdot X)}
+                            {\sqrt{\var(X) \cdot \var(a + b \cdot X)}} \\
+                            &= \frac{b \cdot \cov(X, X)}
+                            {\sqrt{\var(X) \cdot \var(X) \cdot b^2}} \\
+                            &= \frac{-1 \cdot |b| \cdot \var(X)}
+                            {\var(X) \cdot \sqrt{b^2}} \\
+                            &= \frac{-1 \cdot |b| \cdot \var(X)}
+                            {\var(X) \cdot |b|} = -1
+                        \end{split}
+                    \end{equation*}
                 \end{proof}
 
         \end{enumerate}
