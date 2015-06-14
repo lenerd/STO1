@@ -172,11 +172,43 @@
         existieren.
         Es gelten $\e(X+Y) = 0$, $\e(X-Y) = 2$ und $\e(X \cdot Y) = 0$.
         \begin{behaupt}
-            Wir können (k)eine Aussage über die stochastische Unabhängigkeit
-            von $X$ und $Y$ treffen: ?
+            Wir können eine Aussage über die stochastische Unabhängigkeit
+            von $X$ und $Y$ treffen: $X$ und $Y$ sind nicht stochastisch
+            unabhängig.
         \end{behaupt}
         \begin{proof}
-            TODO
+            Zunächst verwenden wir die Linearität des Erwartungswertes:
+            \begin{align*}
+                \e(X + Y) = 0 &\gdw \e(X) + \e(Y) = 0 \\
+                \e(X - Y) = 0 &\gdw \e(X) - \e(Y) = 2
+            \end{align*}
+            Addieren wir die Gleichungen auf der rechten Seite, können wir
+            $\e(X) = 1$ und $\e(Y) = -1$ folgern.
+            \begin{equation*}
+                \begin{split}
+                    \e(X) + \e(Y) + \e(X) - \e(Y) &= 0 + 2 \\
+                    \gdw 2\e(X) &= 2 \\
+                    \gdw \e(X) &= 1 \qquad \Rightarrow \e(Y) = -1
+                \end{split}
+            \end{equation*}
+            Angenommen, $X$ und $Y$ wären stochastisch unabhängig.
+            Dann wären sie auch unkorrelliert und es gelte $Cov(X, Y) = 0$.
+            \begin{equation*}
+                \begin{alignedat}{2}
+                    && \cov(X, Y) &= 0 \\
+                    \gdw\ && \e(X \cdot Y) - \e(X) \cdot \e(Y) &= 0 \\
+                    \gdw\ && \e(X \cdot Y) &= \e(X) \cdot \e(Y)
+                \end{alignedat}
+            \end{equation*}
+            Setzen wir in der letzten Zeile die gegebenen bzw. berechneten
+            Werte ein, erhalten wir
+            \begin{equation*}
+                0 = 1 \cdot (-1)
+                \gdw 0 = -1 \text{ .}
+            \end{equation*}
+            Dies ist offensichtlich ein Widerspruch, daher muss die Annahme, $X$
+            und $Y$ seien stochastisch unabhängig, falsch sein.
+            $X$ und $Y$ sind also nicht stochastisch unabhängig.
         \end{proof}
 
 \end{enumerate}
