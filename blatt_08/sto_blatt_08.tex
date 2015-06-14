@@ -1,0 +1,114 @@
+\documentclass[a4paper]{scrartcl}
+
+% font/encoding packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage[ngerman=ngerman-x-latest]{hyphsubst}
+
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{array}
+\usepackage{stmaryrd}
+\usepackage{marvosym}
+\allowdisplaybreaks
+\usepackage[output-decimal-marker={,}]{siunitx}
+\usepackage[shortlabels]{enumitem}
+\usepackage[section]{placeins}
+\usepackage{float}
+\usepackage{units}
+
+\newtheorem*{behaupt}{Behauptung}
+\newcommand{\gdw}{\Leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\cov}{\operatorname{Cov}}
+\newcommand{\e}{\operatorname{E}}
+\newcommand{\var}{\operatorname{Var}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Stochastik 1 - Gruppe 5 - Blatt 8}
+\rhead{Lennart Braun, Merlin Koglin, Kai Robin Sachse}
+\cfoot{\thepage}
+
+
+\title{Stochastik 1 für Informatiker}
+\subtitle{Blatt 8 Hausaufgaben (Gruppe 5)}
+\author{
+    Lennart Braun (6523742), \\
+    Merlin Koglin (6450362), \\
+    Kai Robin Sachse (6450486)
+}
+\date{zum 16. Juni 2015}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}[label=\bfseries\arabic*.]
+    \item
+        Sei $X$ eine auf $\{-10, -9, \ldots, -1, 0, 1, \ldots, 9, 10\}$
+        gleichverteilte Zufallsvariable.
+        \begin{behaupt}
+            Es gelten $\e(X) = ?$ und $\var(X) = ?$.
+        \end{behaupt}
+        \begin{proof}
+            TODO
+        \end{proof}
+
+    \item
+        \begin{enumerate}[label=(\alph*)]
+            \item
+                Seien $X$, $Y$, $Z$ reelwertige Zufallsvariablen auf einem
+                diskreten Wahrscheinlichkeitsraum $(\Omega, P)$ und
+                $a, b \in \mathbb{R}$.
+                \begin{behaupt}
+                    Sofern alle Ausdrücke existieren gilt
+                    \begin{equation*}
+                        \cov(X, a \cdot Y + b \cdot Z)
+                        = a \cdot \cov(X, Y) + b \cdot \cov(X, Z)
+                    \end{equation*}
+                \end{behaupt}
+                \begin{proof}
+                    TODO
+                \end{proof}
+
+            \item
+                Sei $X$ eine reelwertige Zufallsvariable auf einem diskreten
+                Wahrscheinlichkeitsraum $(\Omega, P)$, deren Erwartungswert und
+                Varianz existieren.
+                Die Varianz sei positiv.
+                Definiere $Y := a + b \cdot X$ für $a, b \in \mathbb{R}$ und
+                $b \neq 0$.
+                \begin{behaupt}
+                    Es gilt
+                    \begin{equation*}
+                        Corr(X, Y) =
+                        \begin{cases}
+                             1 & \text{, wenn } b > 0 \\
+                            -1 & \text{, wenn } b < 0 \\
+                        \end{cases}
+                    \end{equation*}
+                \end{behaupt}
+                \begin{proof}
+                    TODO
+                \end{proof}
+
+        \end{enumerate}
+
+    \item
+        Seien $X$, $Y$ reelwertige Zufallsvariablen auf einem diskreten
+        Wahrscheinlichkeitsraum $(\Omega, P)$, deren Erwartungswerte
+        existieren.
+        Es gelten $\e(X+Y) = 0$, $\e(X-Y) = 2$ und $\e(X \cdot Y) = 0$.
+        \begin{behaupt}
+            Wir können (k)eine Aussage über die stochastische Unabhängigkeit
+            von $X$ und $Y$ treffen: ?
+        \end{behaupt}
+        \begin{proof}
+            TODO
+        \end{proof}
+
+\end{enumerate}
+
+
+\end{document}
