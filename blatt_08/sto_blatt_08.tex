@@ -46,13 +46,41 @@
 
 \begin{enumerate}[label=\bfseries\arabic*.]
     \item
-        Sei $X$ eine auf $\{-10, -9, \ldots, -1, 0, 1, \ldots, 9, 10\}$
+        Sei $X$ eine auf
+        $X(\Omega) = \{-10, -9, \ldots, -1, 0, 1, \ldots, 9, 10\}$
         gleichverteilte Zufallsvariable.
         \begin{behaupt}
-            Es gelten $\e(X) = ?$ und $\var(X) = ?$.
+            Es gelten $\e(X) = 0$ und
+            $\var(X) = \frac{110}{3} \approx \num{36,6666}$.
         \end{behaupt}
         \begin{proof}
-            TODO
+            Da $X$ gleichverteilt ist, gilt $P\{X = x\} = \frac{1}{21}$ für alle
+            $x \in X(\Omega)$.
+
+            Erwartungswert:
+            \begin{equation*}
+                \begin{split}
+                    \e(X) &= \sum_{x \in X(\Omega)} x \cdot P\{X = x\} \\
+                          &= \frac{1}{21} \cdot \sum_{i=-10}^{10} i \\
+                          &= 0
+                \end{split}
+            \end{equation*}
+            Varianz:
+            \begin{equation*}
+                \begin{split}
+                    \var(X) &= \e(X^2) - (\e(X))^2 \\
+                            &= \e(X^2) \\
+                            &= \sum_{x \in X^2(\Omega)} x \cdot P\{X^2 = x\} \\
+                            &= \frac{1}{21} \cdot \sum_{i=-10}^{10} i^2 \\
+                            &= \frac{1}{21} \cdot 2 \cdot \sum_{i=1}^{10} i^2 \\
+                            &= \frac{2}{21} \cdot \frac{1}{6} \cdot 10 \cdot
+                               (10 + 1) \cdot (2 \cdot 10 + 1) \\
+                            &= \frac{2}{21} \cdot \frac{1}{6} \cdot 10 \cdot 11
+                               \cdot 21 \\
+                            &= \frac{110}{3} = 36 + \frac{2}{3}
+                               \approx \num{36,6666}
+                \end{split}
+            \end{equation*}
         \end{proof}
 
     \item
