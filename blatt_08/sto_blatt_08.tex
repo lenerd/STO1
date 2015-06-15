@@ -71,13 +71,10 @@
                 \begin{split}
                     \var(X) &= \e(X^2) - (\e(X))^2 \\
                             &= \e(X^2) \\
-% Scheint mir sehr kompliziert zu sein xD Also mit Transformationssatz (4.3) wäre es ja nur
-%                           &=\sum_{x\in X(\Omega)x^2\cdot P\{X=x\}
-%aber scheint sonst ja zu klappen. 
-                            &= \sum_{x^2 \in X^2(\Omega)} x^2 \cdot P\{X^2 = x^2\} \\
-                            &= 0 \cdot \frac{1}{21} + \sum_{i=1}^{10} i^2 \cdot P\{X^2 = i^2\} \\
-                            &= \sum_{i=1}^{10} i^2 \cdot \frac{2}{21} \\
-                            &= \frac{2}{21} \cdot \sum_{i=1}^{10} i^2 \\
+                            &= \sum_{x \in X(\Omega)} x^2 \cdot P\{X = x\}  \\
+                            &= \sum_{i=-10}^{10} i^2 \cdot P\{X = i\} \\
+                            &= \frac{1}{21} \cdot \sum_{i=-10}^{10} i^2 \\
+                            &= \frac{1}{21} \cdot 2 \cdot \sum_{i=1}^{10} i^2 \\
                             &= \frac{2}{21} \cdot \frac{1}{6} \cdot 10 \cdot
                                (10 + 1) \cdot (2 \cdot 10 + 1) \\
                             &= \frac{2}{21} \cdot \frac{1}{6} \cdot 10 \cdot 11
@@ -86,9 +83,8 @@
                                \approx \num{36,6666}
                 \end{split}
             \end{equation*}
-            Für alle $x^2 \in X^2(\Omega) \setminus \{0\}$ gilt
-            $P\{X^2 = x^2\} = \frac{2}{21}$, da jeweils zwei $x \in X(\Omega)$
-            auf $x^2$ abbilden ($x$ und $-x$).
+            Wir wenden den Transformationssatz für Erwartungswerte an, um
+            $\e(X^2)$ zu berechnen.
         \end{proof}
 
     \item
