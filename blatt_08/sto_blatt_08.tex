@@ -71,10 +71,10 @@
                 \begin{split}
                     \var(X) &= \e(X^2) - (\e(X))^2 \\
                             &= \e(X^2) \\
-%Was machst du als nächstes? Für den Transformationssatz müsste das Quadrat zum x, sonst kannst du auch nicht die 1/21 rausziehen. Die Werte hab ich aber auch mit meiner verschobenen Gleichvtl. raus 
-                            &= \sum_{x \in X^2(\Omega)} x \cdot P\{X^2 = x\} \\
-                            &= \frac{1}{21} \cdot \sum_{i=-10}^{10} i^2 \\
-                            &= \frac{1}{21} \cdot 2 \cdot \sum_{i=1}^{10} i^2 \\
+                            &= \sum_{x^2 \in X^2(\Omega)} x^2 \cdot P\{X^2 = x^2\} \\
+                            &= 0 \cdot \frac{1}{21} + \sum_{i=1}^{10} i^2 \cdot P\{X^2 = i^2\} \\
+                            &= \sum_{i=1}^{10} i^2 \cdot \frac{2}{21} \\
+                            &= \frac{2}{21} \cdot \sum_{i=1}^{10} i^2 \\
                             &= \frac{2}{21} \cdot \frac{1}{6} \cdot 10 \cdot
                                (10 + 1) \cdot (2 \cdot 10 + 1) \\
                             &= \frac{2}{21} \cdot \frac{1}{6} \cdot 10 \cdot 11
@@ -83,6 +83,9 @@
                                \approx \num{36,6666}
                 \end{split}
             \end{equation*}
+            Für alle $x^2 \in X^2(\Omega) \setminus \{0\}$ gilt
+            $P\{X^2 = x^2\} = \frac{2}{21}$, da jeweils zwei $x \in X(\Omega)$
+            auf $x^2$ abbilden ($x$ und $-x$).
         \end{proof}
 
     \item
