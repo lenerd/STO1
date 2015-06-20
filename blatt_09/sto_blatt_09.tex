@@ -86,6 +86,67 @@
         \end{proof}
 
     \item
+        Ein fairer Würfel wird $n$-mal unabhängig voneinander geworfen, $X_i$
+        sei die Augenzahl des $i$-ten Wurfes für $1 \leq i \leq n$.
+        \begin{enumerate}[label=(\alph*)]
+            \item
+                \begin{behaupt}
+                    Es gelten
+                    \begin{equation*}
+                        \e \left( \frac{1}{n} \cdot \sum_{i=0}^n X_i \right)
+                        = \num{3,5}
+                        \quad \text{ und } \quad
+                        \var \left( \frac{1}{n} \cdot \sum_{i=0}^n X_i \right)
+                        = \frac{35}{12 \cdot n}
+                        \text{ .}
+                    \end{equation*}
+                \end{behaupt}
+                \begin{proof}
+                    Wir berechnen zunächst den Erwartungswert und die Varianz
+                    in eines einzelnen Wurfes $X_i$.
+                    \begin{equation*}
+                        \e(X_i) = \frac{1}{6} \cdot \sum_{k=1}^6 = \frac{7}{2}
+                    \end{equation*}
+                    \begin{equation*}
+                        \begin{split}
+                            \var(X_i) 
+                            &= \e(X_i^2) - (\e(X_i))^2 \\
+                            &= \frac{1}{6} \cdot \sum_{k=1}^6 i^2
+                                - \left( \frac{7}{2} \right)^2 \\
+                            &= \frac{35}{12}
+                        \end{split}
+                    \end{equation*}
+
+                    Für die Berechnung des Erwartungswertes des arithmetischen
+                    Mittels der Würfe verwenden wir die Linearität des
+                    Erwartungswertes und das oben berechnete $\e(X_i)$.
+                    \begin{equation*}
+                        \begin{split}
+                            \e \left( \frac{1}{n} \cdot \sum_{i=1}^n X_i \right)
+                            &= \frac{1}{n} \cdot
+                                \e \left( \sum_{i=1}^n X_i \right) \\
+                            &= \frac{1}{n} \cdot \sum_{i=1}^n \e(X_i) \\
+                            &= \frac{1}{n} \cdot n \cdot \frac{7}{2}
+                            = \frac{7}{2}
+                        \end{split}
+                    \end{equation*}
+                    Für die Berechnung der Varianz nutzen wir die Unabhängigkeit
+                    der einzelnen Würfe sowie $\var(aX) = a^2 \cdot \var(X)$.
+                    \begin{equation*}
+                        \begin{split}
+                            \var \left(\frac{1}{n} \cdot \sum_{i=1}^n X_i\right)
+                            &= \frac{1}{n^2} \cdot
+                                \var \left(\sum_{i=1}^n X_i\right) \\
+                            &= \frac{1}{n^2} \cdot \sum_{i=1}^n \var(X_i) \\
+                            &= \frac{1}{n^2} \cdot n \cdot \frac{35}{12}
+                            = \frac{35}{12 \cdot n}
+                        \end{split}
+                    \end{equation*}
+                \end{proof}
+
+            \item
+
+        \end{enumerate}
 
     \item
 
