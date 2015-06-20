@@ -145,6 +145,46 @@
                 \end{proof}
 
             \item
+                Sei $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i$.
+                \begin{behaupt}
+                    Ab $n = 1459$ Würfen ist die Wahrscheinlichkeit, dass das
+                    arithmetische Mittel mehr als $\num{0,2}$ von seinem
+                    Erwartungswert abweicht, kleiner als \num{0,05}:
+                \begin{equation}
+                    P\{|\overline{X} - \e(\overline{X})| \geq \num{0,2}\}
+                    \leq \num{0,05}
+                    \label{eq:foo}
+                \end{equation}
+                \end{behaupt}
+                \begin{proof}
+                Zu wählen ist ein möglichst kleines $n \in \mathbb{N}$, so dass
+                Gleichung \eqref{eq:foo} gilt.
+                Wir schätzen die Wahrscheinlichkeit mit der
+                Chebyshev-Ungleichung nach oben hin ab
+                \begin{equation*}
+                    P\{|\overline{X} - \e(\overline{X})| \geq \num{0,2}\}
+                    \leq \frac{\var(\overline{X})}{\num{0,2}^2}
+                \end{equation*}
+                und wählen $n$ so, dass
+                \begin{equation*}
+                    \frac{\var(\overline{X})}{\num{0,2}^2}
+                    \leq \num{0,05}
+                \end{equation*}
+                gilt und damit insbesondere auch die Gleichung \eqref{eq:foo}.
+                \begin{equation*}
+                    \begin{alignedat}{2}
+                        && \frac{\var(\overline{X})}{\num{0,2}^2}
+                        &\leq \num{0,05} \\
+                        &\gdw\ & \frac{35}{\num{0,2}^2 \cdot 12 \cdot n}
+                        &\leq \num{0,05} \\
+                        &\gdw\ &\frac{35}{\num{0,2}^2 \cdot 12 \cdot \num{0,05}}
+                        &\leq n \\
+                        &\gdw\ & \num{1458,33}
+                        &\lessapprox n \\
+                    \end{alignedat}
+                \end{equation*}
+                Wir wählen daher $n = 1459$.
+                \end{proof}
 
         \end{enumerate}
 
