@@ -17,6 +17,7 @@
 \usepackage[section]{placeins}
 \usepackage{float}
 \usepackage{units}
+\usepackage{listings}
 
 \newtheorem*{behaupt}{Behauptung}
 \newcommand{\gdw}{\Leftrightarrow}
@@ -185,6 +186,29 @@
                 \end{equation*}
                 Wir wählen daher $n = 1459$.
                 \end{proof}
+
+            \item Bonusaufgabe \\
+                Das folgende Skript simuliert 1000 Runden mit je 500 Würfen und
+                zählt die Anzahl der Runden, in denen das arithmetische Mittel
+                um mindestens \num{0,2} von dem oben berechneten Erwartungswert
+                abweicht.
+                Der Anteil dieser Runden wird auf der Standardausgabe
+                ausgegeben.
+                \begin{verbatim}
+                    $ ./bonusaufgabe.py
+                    0.012
+                \end{verbatim}
+                Mit dem verwendeten Seed für den Pseudozufallszahlengenerator
+                gab es bei 12 von 1000 Runden eine Abweichung des arithmetischen
+                Mittels von mehr als \num{0,2} vom Erwartungswert.
+
+                \lstinputlisting[
+                    language=Python,
+                    frame=single,
+                    numbers=left,
+                    caption=bonusaufgabe.py
+                ]
+                {bonusaufgabe.py}
 
         \end{enumerate}
 
