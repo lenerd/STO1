@@ -47,14 +47,49 @@
 
 \begin{enumerate}[label=\bfseries\arabic*.]
     \item
+        Sei $X$ die Anzahl an Zugriffen pro Zeiteinheit auf einen Server.
+        Es gelten $\e(X) = 400$ und $\var(X) = 400$.
+        \begin{behaupt}
+            Mit der Markov-Ungleichung lässt die die Wahrscheinlichkeit für
+            mindestens 1200 Zugriffe in der nächsten Zeiteinheit abschätzen als:
+            \begin{equation*}
+                P\{X \geq 1200\} \leq \frac{1}{3}
+            \end{equation*}
+        \end{behaupt}
+        \begin{proof}
+            Da $X \geq 0$ gilt $X = |X|$.
+            In die Markov-Ungleichung eingesetzt, ergibt sich folgendes.
+            \begin{equation*}
+                P\{X \geq 1200\} = P\{|X| \geq 1200\}
+                \leq \frac{\e(X)}{1200} = \frac{400}{1200} = \frac{1}{3}
+            \end{equation*}
+        \end{proof}
+
+        \begin{behaupt}
+            Mit der Chebyshev-Ungleichung lässt die die Wahrscheinlichkeit für
+            mindestens 1200 Zugriffe in der nächsten Zeiteinheit abschätzen als:
+            \begin{equation*}
+                P\{X \geq 1200\} \leq \frac{1}{1600}
+            \end{equation*}
+        \end{behaupt}
+        \begin{proof}
+            \begin{equation*}
+                \begin{alignedat}{2}
+                    P\{X \geq 1200\} &= P\{X - \e(X) \geq 800\} \\
+                                     &\leq P\{|X - \e(X)| \geq 800\}
+                    \qquad &\text{da } X - \e(X) \leq |X - \e(X)| \\
+                    &\leq \frac{\var(X)}{800^2}
+                    \qquad &\text{Chebyshev's Ungleichung} \\
+                    &= \frac{400}{800^2} = \frac{1}{1600}
+                \end{alignedat}
+            \end{equation*}
+        \end{proof}
 
     \item
 
     \item
 
 \end{enumerate}
-
-\paragraph{Bonusaufgabe}
 
 
 \end{document}
