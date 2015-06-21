@@ -16,21 +16,18 @@ def main():
     expected_value = 3.5  # from previous task
     count = 0             # counter
 
-    n = 1000
-    m = 500
-
     # do 1000 runs
-    for i in range(n):
+    for i in range(1000):
         s = 0
         # sum over 500 dice rolls
-        for j in range(m):
+        for j in range(500):
             s += roll_dice()
-        arithmetic_mean = s / float(m)
+        arithmetic_mean = s / 500.0
         if abs(arithmetic_mean - expected_value) >= 0.2:
             # arithmetic mean differs at least 0.2
             # from the expected value
             count += 1
-    ratio = count / float(n)
+    ratio = count / 1000.0
     print(ratio)
 
 

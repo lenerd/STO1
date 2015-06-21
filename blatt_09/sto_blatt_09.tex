@@ -213,6 +213,53 @@
         \end{enumerate}
 
     \item
+        \begin{behaupt}
+            Das schwache Gesetz der großen Zahlen gilt im Allgemeinen nicht für
+            nicht unkorrelierte Zufallsvariablen. \\
+            Es existieren also nicht unkorrelierte Zufallsvariablen
+            $X_1, X_2, \dotsc$ für die nicht für alle $\epsilon > 0$
+            \begin{equation}
+                P\left\{
+                    \frac{1}{n} \left| \sum_{i=0}^n (X_i - \e(X_i)) \right|
+                    \geq \epsilon
+                \right\}
+                \to 0
+            \end{equation}
+            für $n \to \infty$ gilt.
+        \end{behaupt}
+        \begin{proof}
+            Wir wählen die Zufallsvariablen $X_1 = X_2 = \dotsb = X_n$ auf einem
+            diskreten Wahrscheinlichkeitsraum.
+            Für alle $1 \leq i, j \leq n$ gelte $P\{X_i = 0\} = P\{X_i = 1\} =
+            \num{0,5}$ und damit $\e(X_i) = \num{0,5}$ und $\var(X_i) =
+            \cov(X_i, Y_j) = \num{0,25}$.
+            Die Zufallsvariablen sind also nicht unkorreliert und nehmen
+            entweder alle den Wert 1 oder alle den Wert 0 an.
+            Der Term $X_i - \e(X_i)$ ist im ersten Fall für alle
+            $1 \leq i \leq n$ gleich \num{0,5} und im zweiten \num{-0,5}.
+            \begin{equation}
+                \begin{split}
+                    P\left\{
+                        \frac{1}{n} \left| \sum_{i=1}^n (X_i - \e(X_i)) \right|
+                        \geq \epsilon
+                    \right\}
+                    &=
+                    P\left\{
+                        \frac{1}{n} \cdot n \cdot \num{0,5} \geq \epsilon
+                    \right\} \\
+                    &= P\left\{ \num{0,5} \geq \epsilon \right\} \\
+                    &=
+                    \begin{cases}
+                        1 & \text{, wenn } \epsilon \leq \num{0,5} \\
+                        0 & \text{, wenn } \epsilon > \num{0,5} \\
+                    \end{cases}
+                \end{split}
+                \label{eq:bar}
+            \end{equation}
+            Es gibt also $\epsilon > 0$, für die Gleichung \eqref{eq:bar} nicht
+            gegen 0 strebt, wenn $n \to \infty$:
+            alle $0 < \epsilon \leq \num{0,5}$.
+        \end{proof}
 
 \end{enumerate}
 
