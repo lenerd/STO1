@@ -49,9 +49,9 @@
 \begin{enumerate}[label=\bfseries\arabic*.]
     \item
         Sei $X$ die Anzahl an Zugriffen pro Zeiteinheit auf einen Server.
-        Es gelten $\e(X) = 400$ und $\var(X) = 400$.
+        Und es gelten $\e(X) = 400$ und $\var(X) = 400$.
         \begin{behaupt}
-            Mit der Markov-Ungleichung lässt die die Wahrscheinlichkeit für
+            Mit der Markov-Ungleichung lässt sich die Wahrscheinlichkeit für
             mindestens 1200 Zugriffe in der nächsten Zeiteinheit abschätzen als:
             \begin{equation*}
                 P\{X \geq 1200\} \leq \frac{1}{3}
@@ -67,7 +67,7 @@
         \end{proof}
 
         \begin{behaupt}
-            Mit der Chebyshev-Ungleichung lässt die die Wahrscheinlichkeit für
+            Mit der Chebyshev-Ungleichung lässt sich die Wahrscheinlichkeit für
             mindestens 1200 Zugriffe in der nächsten Zeiteinheit abschätzen als:
             \begin{equation*}
                 P\{X \geq 1200\} \leq \frac{1}{1600}
@@ -104,15 +104,15 @@
                 \end{behaupt}
                 \begin{proof}
                     Wir berechnen zunächst den Erwartungswert und die Varianz
-                    in eines einzelnen Wurfes $X_i$.
+                    eines einzelnen Wurfes $X_i$.
                     \begin{equation*}
-                        \e(X_i) = \frac{1}{6} \cdot \sum_{k=1}^6 = \frac{7}{2}
+                        \e(X_i) = \frac{1}{6} \cdot \sum_{k=1}^6 k = \frac{7}{2}
                     \end{equation*}
                     \begin{equation*}
                         \begin{split}
                             \var(X_i) 
                             &= \e(X_i^2) - (\e(X_i))^2 \\
-                            &= \frac{1}{6} \cdot \sum_{k=1}^6 i^2
+                            &= \frac{1}{6} \cdot \sum_{k=1}^6 k^2
                                 - \left( \frac{7}{2} \right)^2 \\
                             &= \frac{35}{12}
                         \end{split}
@@ -152,7 +152,7 @@
                     arithmetische Mittel mehr als $\num{0,2}$ von seinem
                     Erwartungswert abweicht, kleiner als \num{0,05}:
                 \begin{equation}
-                    P\{|\overline{X} - \e(\overline{X})| \geq \num{0,2}\}
+                    P\left\lbrace|\overline{X} - \e(\overline{X})| \geq \num{0,2}\right\rbrace
                     \leq \num{0,05}
                     \label{eq:foo}
                 \end{equation}
@@ -163,7 +163,7 @@
                 Wir schätzen die Wahrscheinlichkeit mit der
                 Chebyshev-Ungleichung nach oben hin ab
                 \begin{equation*}
-                    P\{|\overline{X} - \e(\overline{X})| \geq \num{0,2}\}
+                    P\left\lbrace|\overline{X} - \e(\overline{X})| \geq \num{0,2}\right\rbrace
                     \leq \frac{\var(\overline{X})}{\num{0,2}^2}
                 \end{equation*}
                 und wählen $n$ so, dass
