@@ -64,6 +64,33 @@
         \end{enumerate}
 
     \item
+        Sei $Y \sim \mathcal{B}_{(n, p)}$ die Anzahl der geworfenen Sechsen in
+        $n = 1200$ Würfen mit einem fairen Würfel ($p = \nicefrac{1}{6}$).
+        \begin{behaupt}
+            Es gilt
+            \begin{equation*}
+                P\{190 < Y \leq 220\} \approx \num{0,7188} \text{ .}
+            \end{equation*}
+        \end{behaupt}
+        \begin{proof}
+            Wir verwenden den zentralen Grenzwertsatz in der Form von Moivre und
+            Laplace.
+            \begin{equation*}
+                \begin{split}
+                    P\left\{ 190 < Y \leq 220 \right\}
+                    &= P\left\{
+                        \underbrace{\frac{190 - np}{\sqrt{np \cdot (1 - p)}}}_a
+                        < \frac{Y - np}{\sqrt{np \cdot (1 - p)}} \leq
+                        \underbrace{\frac{220 -np}{\sqrt{np \cdot (1 - p)}}}_b
+                    \right\} \\
+                    &\approx \Phi(b) - \Phi(a) \\
+                    &\approx \Phi(\num{1.5492}) - \Phi(\num{-0.7746}) \\
+                    &= \Phi(\num{1.5492}) - 1 + \Phi(\num{0.7746}) \\
+                    &\approx \num{0,9394} - 1 + \num{0,7794} \\
+                    &= \num{0,7188}
+                \end{split}
+            \end{equation*}
+        \end{proof}
 
 \end{enumerate}
 
