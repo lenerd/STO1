@@ -48,8 +48,53 @@
 
 \begin{enumerate}[label=\bfseries\arabic*.]
     \item
+        Gebe die Zufallsvariable $X_i$ die Anzahl der Personen an, für deren
+        Kommen der Ehemalige $i$ sorgt.
+        Es gelten $P\{X_i = 0\} = \num{0,5}$, $P\{X_i = 1\} = \num{0,3}$ und
+        $P\{X_i = 2\} = \num{0,2}$ für alle $1 \leq i \leq 100$ sowie
+        $Y = \sum_{i=1}^{100} X_i$.
         \begin{enumerate}[label=(\alph*)]
             \item
+                \begin{behaupt}
+                    Für die Anzahl $Y$ der teilnehmenden Personen gelten
+                    \begin{equation*}
+                        \e(Y) = 70 \text{ , } \var(Y) = 61 \text{ und }
+                        \sigma_Y = \sqrt{61} \text{ .}
+                    \end{equation*}
+                \end{behaupt}
+                \begin{proof}
+                    Da alle $X_i$ unabhängig voneinander sind, können wir die
+                    Größen wie folgt bestimmen.
+
+                    Erwartungswert:
+                    \begin{equation*}
+                        \begin{split}
+                            \e(Y) &= \e\left( \sum_{i=1}^{100} X_i \right) \\
+                                  &= \sum_{i=1}^{100} \e(X_i) \\
+                                  &= \sum_{i=1}^{100} (0 \cdot \num{0,5} + 1
+                                     \cdot \num{0,3} + 2 \cdot \num{0,2}) \\
+                                  &= 100 \cdot \num{0,7} = 70
+                        \end{split}
+                    \end{equation*}
+                    Varianz:
+                    \begin{equation*}
+                        \begin{split}
+                            \var(Y)
+                            &= \var\left( \sum_{i=1}^{100} X_i \right) \\
+                            &= \sum_{i=1}^{100} \var(X_i) \\
+                            &= \sum_{i=1}^{100}
+                               \Big( \e(X_i^2) - (\e(X_i))^2 \Big) \\
+                            &= \sum_{i=1}^{100}
+                               \Big( \num{1,1} - \num{0,49} \Big) \\
+                            &= 100 \cdot \num{0,61} = 61
+                        \end{split}
+                    \end{equation*}
+                    Standardabweichung:
+                    \begin{equation*}
+                        \sigma_Y = \sqrt{\var{Y}}
+                        = \sqrt{61} \approx \num{7,8102}
+                    \end{equation*}
+                \end{proof}
 
             \item
 
