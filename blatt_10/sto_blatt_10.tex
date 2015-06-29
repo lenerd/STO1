@@ -126,9 +126,15 @@
 
     \item
         \begin{enumerate}[label=(\alph*)]
-            \item
+            \item Mädchen mit $p=0,5$. $n=1290$. $Y\sim \mathcal{B}_{(n,p)}$ Zv. die Anzahl der Mädchen angibt
+            \begin{align*}
+            P\{Y\le 621\}&=P\left\{\frac{Y-np}{\sqrt{np(1-p)}}\le\frac{621-np}{\sqrt{np(1-p)}}\right\}\\
+            &\approx \Phi\left(\frac{621-1290\cdot 0,5}{\sqrt{1290\cdot 0,5\cdot 1-0,5}}\right)\\
+            &=\Phi \left(\frac{-24}{\sqrt{322,5}}\right)\\
+            &\approx \Phi(-1,34)=1-\Phi(1,34)\approx 1-0,9099=0,0901
+            \end{align*}
 
-            \item
+            \item Die W. das bei einer 50/50 W. von Jungen und Mädchen, 621 Mädchen geboren werden liegt bei unter 10 Prozent. Es liegt also nahe, das die Annahme, dass die W. für ein Madchen wirklich $0,5$ beträgt, falsch ist. 
 
         \end{enumerate}
 
@@ -155,6 +161,7 @@
                     &\approx \Phi(b) - \Phi(a) \\
                     &\approx \Phi(\num{1.5492}) - \Phi(\num{-0.7746}) \\
                     &= \Phi(\num{1.5492}) - 1 + \Phi(\num{0.7746}) \\
+% also in der Tabelle die ich hab steht phi(1,54)=0,9382 ??                    
                     &\approx \num{0,9394} - 1 + \num{0,7794} \\
                     &= \num{0,7188}
                 \end{split}
