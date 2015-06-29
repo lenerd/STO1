@@ -159,15 +159,103 @@
 
     \item
         \begin{enumerate}[label=(\alph*)]
-            \item Mädchen mit $p=0,5$. $n=1290$. $Y\sim \mathcal{B}_{(n,p)}$ Zv. die Anzahl der Mädchen angibt
-            \begin{align*}
-            P\{Y\le 621\}&=P\left\{\frac{Y-np}{\sqrt{np(1-p)}}\le\frac{621-np}{\sqrt{np(1-p)}}\right\}\\
-            &\approx \Phi\left(\frac{621-1290\cdot 0,5}{\sqrt{1290\cdot 0,5\cdot 1-0,5}}\right)\\
-            &=\Phi \left(\frac{-24}{\sqrt{322,5}}\right)\\
-            &\approx \Phi(-1,34)=1-\Phi(1,34)\approx 1-0,9099=0,0901
-            \end{align*}
+            \item
+                Angenommen die Geschlechter aller Babys sind unabhängig und die
+                Wahrscheinlichkeit für ein Mädchen betrage $p = \num{0,5}$.
+                Sei $Y \sim \mathcal{B}_{(n, p)}$ eine Zufallsvariable, welche
+                die Anzahl der Mädchen in $n = 1290$ Geburten angibt.
+                \begin{equation*}
+                    \begin{split}
+                        P\{Y \leq 621\}
+                        &= P\left\{ \frac{Y - np}{\sqrt{np(1-p)}} \leq
+                            \frac{621 - np}{\sqrt{np(1-p)}} \right\} \\
+                        &\approx \Phi\left(
+                            \frac{621 - 1290 \cdot \num{0,5}}
+                            {\sqrt{1290 \cdot \num{0,5} \cdot \num{0,5}}}
+                        \right) \\
+                        &= \Phi\left( \frac{-24}{\sqrt{\num{322,5}}} \right) \\
+                        &\approx \Phi(\num{-1,3364})
+                        = 1 - \Phi(\num{1,3364})
+                        \approx 1 - \num{0,9099}
+                        = \num{0,0901}
+                    \end{split}
+                \end{equation*}
 
-            \item Die W. das bei einer 50/50 W. von Jungen und Mädchen, 621 Mädchen geboren werden liegt bei unter 10 Prozent. Es liegt also nahe, das die Annahme, dass die W. für ein Madchen wirklich $0,5$ beträgt, falsch ist. 
+            %\item Die W. das bei einer 50/50 W. von Jungen und Mädchen, 621 Mädchen geboren werden liegt bei unter 10 Prozent. Es liegt also nahe, das die Annahme, dass die W. für ein Madchen wirklich $0,5$ beträgt, falsch ist. 
+
+            % Ich habe das mal mit dem Beispiel aus der Vorlesung gerechnet:
+            \item
+                Wir wählen $\alpha = \num{0,05}$ und dann ein $\varepsilon > 0$,
+                so dass die Wahrscheinlichkeit, dass die Anzahl an Mädchen bei
+                fairen Geburten um mindestens $\varepsilon$ vom Erwartungswert
+                abweicht, höchstens $\alpha$ ist.
+                \begin{equation*}
+                    P \left\{
+                        \left| \frac{1}{n} (Y - np) \right| \geq \varepsilon
+                    \right\} \leq \alpha
+                \end{equation*}
+                Mit Hilfe des zentralen Grenzwertsatzes können wir dieses
+                $\varepsilon$ bestimmen.
+                \begin{equation*}
+                    \begin{alignedat}{2}
+                        && P \left\{
+                            \left| \frac{1}{n} (Y - np) \right| \geq \varepsilon
+                        \right\} 
+                        \leq \alpha \\
+                        \gdw&& P \left\{
+                            \left| \frac{Y - np}{\sqrt{np(1-p)}} \right|
+                            \geq 2 \sqrt{n} \varepsilon
+                        \right\} 
+                        \leq \alpha \\
+                        \gdw&& P \left\{
+                            \frac{Y - np}{\sqrt{np(1-p)}}
+                            \geq 2 \sqrt{n} \varepsilon
+                            \text{ oder }
+                            -\frac{Y - np}{\sqrt{np(1-p)}}
+                            \geq 2 \sqrt{n} \varepsilon
+                        \right\} 
+                        \leq \alpha \\
+                        \gdw&& P \left\{
+                            \frac{Y - np}{\sqrt{np(1-p)}}
+                            \geq 2 \sqrt{n} \varepsilon
+                        \right\} 
+                        +
+                        P \left\{
+                            \frac{Y - np}{\sqrt{np(1-p)}}
+                            \leq -2 \sqrt{n} \varepsilon
+                        \right\} 
+                        \leq \alpha \\
+                        \gdw&&
+                        1 - \Phi(2 \sqrt{n} \varepsilon)
+                        +
+                        \Phi(-2 \sqrt{n} \varepsilon)
+                        \lessapprox \alpha \\
+                        \gdw&&
+                        2 - 2\Phi(2 \sqrt{n} \varepsilon)
+                        \lessapprox \alpha \\
+                        \gdw&&
+                        \frac{\Phi^{-1} \left( 1 - \frac{\alpha}{2} \right)}
+                             {2\sqrt{n}}
+                        \lessapprox \varepsilon \\
+                        \gdw&&
+                        \frac{\Phi^{-1}(\num{0,975})}
+                             {2\sqrt{1290}}
+                        \lessapprox \varepsilon \\
+                        \gdw&&
+                        \frac{\num{1,96}}
+                             {2\sqrt{1290}}
+                        \lessapprox \varepsilon \\
+                        \gdw&&
+                        \num{0.0273}
+                        \lessapprox \varepsilon \\
+                    \end{alignedat}
+                \end{equation*}
+                Wir sehen die Geburten als unfair an, wenn die relative
+                Häufigkeit von Mädchen außerhalb von
+                $(\num{0,5} - \varepsilon, \num{0,5} + \varepsilon) =
+                (\num{0,4727},\ \num{0,5273})$ liegt.
+                Dies ist mit $\nicefrac{621}{1290} \approx \num{0,4814}$ nicht der
+                Fall.
 
         \end{enumerate}
 
