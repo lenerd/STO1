@@ -96,30 +96,63 @@
                     \end{equation*}
                 \end{proof}
 
-            \item \begin{behaupt} Die W. das mehr als 80 Leute kommen, beträgt ohne
-            Stetigkeitskorrektur ca. $0,1003$ und mit $0,1131$.
-            \end{behaupt}
-            
-            \begin{proof}
-            Wir wenden den ZGWS an
-            \begin{align*}
-            P\{Y>80\}&=1-P\{Y\le 80\}\\
-            &=1-P\left\lbrace\frac{Y-n\cdot E(X_1)}{\sqrt{n\cdot Var X_1}}
-            \le \frac{80-n\cdot E(X_1)}{\sqrt{n\cdot Var X_1}}\right\rbrace \\
-            &\approx \Phi\left(\frac{80-100\cdot 0,7}{\sqrt{100\cdot 0,61}}\right)\\
-            &= 1-\Phi\left(\frac{10}{\sqrt{61}}\right)\\
-            &\approx 1-\Phi(1,2804)\approx 1-0,8997=0,1003
-            \end{align*}
-            \begin{align*}
-            P\{Y>80\}&=P\{Y> 79,5\}\\
-            &= 1-P\{Y\le 79,5\}\\
-            &=1-P\left\{\frac{Y-n\cdot E(X_1)}{\sqrt{n\cdot Var X_1}}
-            \le \frac{79,5-n\cdot E(X_1)}{\sqrt{n\cdot Var X_1}}\right\} \\
-            &=\Phi\left(\frac{79,5-100\cdot 0,7}{\sqrt{100\cdot 0,61}}\right)\\
-            &\approx 1-\Phi\left(\frac{9,5}{\sqrt{61}}\right)\\
-            &\approx 1-\Phi(1,2163)\approx 1-0,8869=0,1131
-            \end{align*}
-            \end{proof}
+            \item
+                \begin{behaupt}
+                    Die Wahrscheinlichkeit, dass mehr als 80 Leute kommen,
+                    beträgt ohne Stetigkeitskorrektur ca. \num{0,1003} und mit
+                    \num{0,0901}.
+                \end{behaupt}
+                \begin{proof}
+                    Wir wenden den zentralen Grenzwertsatz an.
+                    Es seien $\mu = \e(X_i)$ und $\sigma^2 = \var(X_i)$ für
+                    $1 \leq i \leq 100$.
+                    \begin{equation*}
+                        \begin{split}
+                            P\{Y > 80\} &= 1 - P\{Y \leq 80\} \\
+                            &= 1 - P \left\lbrace
+                            \frac{Y - n \cdot \mu}{\sqrt{n \cdot \sigma^2}}
+                            \leq
+                            \frac{80 - n \cdot \mu}{\sqrt{n\cdot \sigma^2}}
+                            \right\rbrace \\
+                            &\approx 1 - \Phi \left(
+                            \frac{80 - 100 \cdot 0,7}{\sqrt{100 \cdot 0,61}}
+                            \right) \\
+                            &= 1 - \Phi \left( \frac{10}{\sqrt{61}} \right) \\
+                            &\approx 1 - \Phi(\num{1,2804})
+                            \approx 1 - \num{0,8997} = \num{0,1003}
+                        \end{split}
+                    \end{equation*}
+                    % \begin{equation*}
+                    %     \begin{split}
+                    %         P\{Y>80\}&=P\{Y> 79,5\}\\
+                    %         &= 1-P\{Y\le 79,5\}\\
+                    %         &=1-P\left\{\frac{Y-n\cdot E(X_1)}{\sqrt{n\cdot Var X_1}}
+                    %         \le \frac{79,5-n\cdot E(X_1)}{\sqrt{n\cdot Var X_1}}\right\} \\
+                    %         &=1-\Phi\left(\frac{79,5-100\cdot 0,7}{\sqrt{100\cdot 0,61}}\right)\\
+                    %         &\approx 1-\Phi\left(\frac{9,5}{\sqrt{61}}\right)\\
+                    %         &\approx 1-\Phi(1,2163)\approx 1-0,8869=0,1131
+                    %     \end{split}
+                    % \end{equation*}
+                    \begin{equation*}
+                        \begin{split}
+                            P\{Y > 80\} &= P\{Y > \num{80,5}\} \\
+                            &= 1 - P\{Y \leq \num{80,5}\} \\
+                            &= 1 - P \left\lbrace
+                            \frac{Y - n \cdot \mu}{\sqrt{n \cdot \sigma^2}}
+                            \leq
+                            \frac{\num{80,5} - n \cdot \mu}
+                                 {\sqrt{n\cdot \sigma^2}}
+                            \right\rbrace \\
+                            &\approx 1 - \Phi \left(
+                            \frac{\num{80,5} - 100 \cdot 0,7}{\sqrt{100 \cdot 0,61}}
+                            \right) \\
+                            &= 1 - \Phi \left( \frac{\num{10,5}}
+                                                    {\sqrt{61}} \right) \\
+                            &\approx 1 - \Phi(\num{1,3444})
+                            \approx 1 - \num{0,9099} = \num{0,0901}
+                        \end{split}
+                    \end{equation*}
+                \end{proof}
             
 
         \end{enumerate}
