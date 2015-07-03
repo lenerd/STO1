@@ -1,0 +1,225 @@
+\documentclass[a4paper]{scrartcl}
+
+% font/encoding packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage[ngerman=ngerman-x-latest]{hyphsubst}
+
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{array}
+\usepackage{stmaryrd}
+\usepackage{marvosym}
+\allowdisplaybreaks
+\usepackage[output-decimal-marker={,}]{siunitx}
+\usepackage[shortlabels]{enumitem}
+\usepackage[section]{placeins}
+\usepackage{float}
+\usepackage{units}
+\usepackage{listings}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.12}
+
+\newtheorem*{behaupt}{Behauptung}
+\newcommand{\gdw}{\Leftrightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\cov}{\operatorname{Cov}}
+\newcommand{\e}{\operatorname{E}}
+\newcommand{\var}{\operatorname{Var}}
+\newcommand{\corr}{\operatorname{Corr}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Stochastik 1 - Gruppe 5 - Blatt 11}
+\rhead{Lennart Braun, Merlin Koglin, Kai Robin Sachse}
+\cfoot{\thepage}
+
+
+\title{Stochastik 1 für Informatiker}
+\subtitle{Blatt 11 Hausaufgaben (Gruppe 5)}
+\author{
+    Lennart Braun (6523742), \\
+    Merlin Koglin (6450362), \\
+    Kai Robin Sachse (6450486)
+}
+\date{zum 7. Juni 2015}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}[label=\bfseries\arabic*.]
+    \item
+        \begin{enumerate}[label=(\alph*)]
+            \item
+
+            \item
+
+            \item
+
+        \end{enumerate}
+
+    \item
+        Gegeben sei die Funktion $F$:
+        \begin{equation*}
+            F(x) =
+            \begin{cases}
+                0 & \text{, } x \leq 1 \\
+                \num{0,5} \cdot x - \num{0,5} & \text{, } 1 < x \leq 3 \\
+                1 & \text{, } 3 < x \\
+            \end{cases}
+        \end{equation*}
+        \begin{enumerate}[label=(\alph*)]
+            \item \hfill \\
+                \begin{figure}[H]
+                    \centering
+                    \begin{tikzpicture}
+                        \begin{axis}[
+                            axis lines=left,
+                            xlabel=$x$,
+                            ylabel=$F(x)$,
+                        ]
+                            \addplot[
+                                domain=0:1,
+                            ]
+                            {0};
+                            \addplot[
+                                domain=1:3,
+                            ]
+                            {0.5*x-0.5};
+                            \addplot[
+                                domain=3:5,
+                            ]
+                            {1};
+                        \end{axis}
+                    \end{tikzpicture}
+                    \caption{Plot von $F$}
+                \end{figure}
+
+            \item
+                \begin{behaupt}
+                    $F$ ist eine Verteilungsfunktion.
+                \end{behaupt}
+                \begin{proof}
+                    Um die Behauptung zu zeigen, müssen folgende Aussagen
+                    gelten.
+                    \begin{itemize}
+                        \item $F$ ist monoton steigend.
+                        \item $F$ ist rechtsseitig stetig.
+                        \item $F(-\infty) = 0$ und $F(\infty) = 1$.
+                    \end{itemize}
+
+                    Da $F$ auf $(1, 3]$ eine lineare Funktion mit positiver
+                    Steigung und sonst eine konstante Funktion ist, ist $F$
+                    monoton steigend.
+
+                    Da $F$ aus einer linearen und zwei konstanten Funktionen
+                    zusammengesetzt ist, gilt es, an den Schnittstellen $x = 1$
+                    und $x = 3$ auf rechtsseitige Stetigkeit zu prüfen.
+                    \begin{align*}
+                        \begin{split}
+                            \lim_{x \searrow 1} F(x)
+                            &= \lim_{x \searrow 1}
+                            ( \num{0,5} \cdot x - \num{0,5})
+                            = \num{0,5} - \num{0,5}
+                            = 0
+                            = F(1)
+                        \end{split} \\
+                        \begin{split}
+                            \lim_{x \searrow 3} F(x)
+                            &= \lim_{x \searrow 1} (1)
+                            = 1
+                            = F(3)
+                        \end{split}
+                    \end{align*}
+
+                    Es ist leicht zu sehen, dass auch die dritte Bedindung
+                    erfüllt ist.
+                    \begin{align*}
+                        \begin{split}
+                            F(-\infty) = \lim_{x \to -\infty} F(x)
+                                = \lim_{x \to -\infty} 0
+                                = 0
+                        \end{split} \\
+                        \begin{split}
+                            F(-\infty) = \lim_{x \to -\infty} F(x)
+                                = \lim_{x \to -\infty} 1
+                                = 1
+                        \end{split}
+                    \end{align*}
+                    $F$ ist also eine Verteilungsfunktion.
+                \end{proof}
+
+            \item
+                Sei $P$ das zu $F$ gehörige Wahrscheinlichkeitsmaß auf
+                $\mathbb{R}$.
+                \begin{behaupt}
+                Es gilt $P((1, 2]) = \num{0,5}$.
+                \end{behaupt}
+                \begin{proof}
+                    Es gilt $F(x) = P((-\infty, x])$.
+                    \begin{equation*}
+                        \begin{split}
+                            P ((1, 2]) &= P((-\infty, 2]) - P((-\infty, 1]) \\
+                            &= F(2) - F(1) \\
+                            &= (\num{0,5} \cdot 2 - \num{0,5})
+                            - (\num{0,5} \cdot 1 - \num{0,5}) \\
+                            &= \num{0,5}
+                        \end{split}
+                    \end{equation*}
+                \end{proof}
+
+            \item
+                Eine Dichte von $P$ ist eine Funktion $f$, welche
+                \begin{equation}
+                    F(x) = P((-\infty, x] = \int_{-\infty}^x f(t) \ \textrm{d}t
+                    \label{eq:dichte}
+                \end{equation}
+                erfüllt.
+                Die Ableitung $f$ von $F$ ist eine solche Funktion.
+                \begin{equation*}
+                    f(x) =
+                    \begin{cases}
+                        0 & \text{, } x \leq 1 \\
+                        \num{0,5} & \text{, } 1 < x \leq 3 \\
+                        0 & \text{, } 3 < x \\
+                    \end{cases}
+                \end{equation*}
+                
+                Um zu zeigen, dass Gleichung \eqref{eq:dichte} gilt, betrachten
+                wir drei Fälle.
+
+                Für $x \leq 1$ gilt
+                \begin{equation*}
+                    \int_{-\infty}^x f(t)\ \textrm{d}{t}
+                    = [0]_{-\infty}^x = 0 = F(x) \text{ .}
+                \end{equation*}
+
+                Für $1 < x \leq 3$ gilt
+                \begin{equation*}
+                    \int_{-\infty}^x f(t)\ \textrm{d}{t}
+                    = \int_{-\infty}^1 f(t)\ \textrm{d}{t}
+                    + \int_{1}^x f(t)\ \textrm{d}{t}
+                    = [\num{0,5}x]_1^x = \num{0,5}x - \num{0,5} = F(x)
+                    \text{ .}
+                \end{equation*}
+                
+                Für $3 < x$ gilt
+                \begin{equation*}
+                    \int_{-\infty}^3 f(t)\ \textrm{d}{t}
+                    = \int_3^\infty f(t)\ \textrm{d}{t}
+                    + \int_{1}^x f(t)\ \textrm{d}{t}
+                    = [\num{0,5}x]_1^3 = 1 = F(x)
+                    \text{ .}
+                \end{equation*}
+
+                Daher ist $f$ eine Dichte von $P$.
+
+        \end{enumerate}
+
+    \item
+
+\end{enumerate}
+
+
+\end{document}
